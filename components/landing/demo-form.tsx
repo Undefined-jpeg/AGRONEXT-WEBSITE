@@ -110,19 +110,19 @@ export function DemoForm() {
           defaultValue=""
           className={`${inputClass} appearance-none`}
         >
-          <option value="" disabled className="bg-[#0B1120] text-white">
+          <option value="" disabled className="bg-marketing text-white">
             {t("sizePlaceholder")}
           </option>
-          <option value="0-500" className="bg-[#0B1120] text-white">
+          <option value="0-500" className="bg-marketing text-white">
             {t("sizeOptions.small")}
           </option>
-          <option value="500-2000" className="bg-[#0B1120] text-white">
+          <option value="500-2000" className="bg-marketing text-white">
             {t("sizeOptions.medium")}
           </option>
-          <option value="2000-10000" className="bg-[#0B1120] text-white">
+          <option value="2000-10000" className="bg-marketing text-white">
             {t("sizeOptions.large")}
           </option>
-          <option value="10000+" className="bg-[#0B1120] text-white">
+          <option value="10000+" className="bg-marketing text-white">
             {t("sizeOptions.xlarge")}
           </option>
         </select>

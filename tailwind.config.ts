@@ -59,6 +59,11 @@ const config: Config = {
           DEFAULT: "#34D399",
           foreground: "#022c22",
         },
+        marketing: {
+          DEFAULT: "hsl(var(--marketing-surface))",
+          raised: "hsl(var(--marketing-raised))",
+          inset: "hsl(var(--marketing-inset))",
+        },
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],

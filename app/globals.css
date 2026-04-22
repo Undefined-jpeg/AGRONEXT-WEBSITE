@@ -42,6 +42,11 @@
     --ring: 152 41% 30%;
 
     --radius: 0.625rem;
+
+    /* Dark marketing bands — same hue family as primary (#2D6A4F), not blue-black */
+    --marketing-surface: 152 38% 10%;
+    --marketing-raised: 152 32% 14%;
+    --marketing-inset: 152 36% 8%;
   }
 
   .dark {

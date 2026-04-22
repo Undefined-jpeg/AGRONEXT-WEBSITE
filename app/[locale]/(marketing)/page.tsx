@@ -261,13 +261,13 @@ export default function LandingPage({ params: { locale } }: PageProps) {
       </section>
 
       {/* Problem */}
-      <section className="relative mt-24 bg-[#0B1120] text-white md:mt-32">
+      <section className="relative mt-24 bg-marketing text-white md:mt-32">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.06]"
+          className="pointer-events-none absolute inset-0 opacity-[0.12]"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
+              "linear-gradient(hsl(152 41% 45% / 0.14) 1px, transparent 1px), linear-gradient(90deg, hsl(152 41% 45% / 0.14) 1px, transparent 1px)",
             backgroundSize: "56px 56px",
             maskImage:
               "radial-gradient(ellipse 80% 60% at 30% 30%, black 45%, transparent 100%)",
@@ -297,7 +297,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
               const Icon = c.icon
               return (
                 <FadeInSection key={c.label} delay={i * 0.08}>
-                  <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-8">
+                  <div className="rounded-2xl border border-primary/15 bg-primary/[0.07] p-6 md:p-8">
                     <div className={`${c.tone} mb-4`}>
                       <Icon className="h-7 w-7" strokeWidth={1.5} />
                     </div>
@@ -319,7 +319,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
       </section>
 
       {/* Product */}
-      <section className="relative bg-[#0B1120] text-white">
+      <section className="relative bg-marketing text-white">
         <div className="container relative py-24 md:py-32">
           <div className="grid items-start gap-12 lg:grid-cols-[1.15fr_1fr]">
             <FadeInSection>
@@ -344,15 +344,15 @@ export default function LandingPage({ params: { locale } }: PageProps) {
                       <div
                         className={`group flex items-start gap-4 rounded-xl border p-4 transition-colors md:p-5 ${
                           layer.highlighted
-                            ? "border-accent2/40 bg-accent2/5"
-                            : "border-white/10 bg-white/[0.03] hover:border-white/20"
+                            ? "border-accent2/40 bg-accent2/10"
+                            : "border-primary/12 bg-primary/[0.05] hover:border-primary/25"
                         }`}
                       >
                         <div
                           className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-xs font-mono ${
                             layer.highlighted
                               ? "bg-accent2 text-accent2-foreground"
-                              : "bg-white/5 text-white/50"
+                              : "bg-primary/10 text-white/50"
                           }`}
                         >
                           {layer.num}
@@ -394,8 +394,8 @@ export default function LandingPage({ params: { locale } }: PageProps) {
                 <div className="absolute -right-2 -top-2 z-10 rounded-md bg-accent2 px-2.5 py-1 text-[10px] font-semibold text-accent2-foreground shadow-lg">
                   {t("product.phone.badge")}
                 </div>
-                <div className="rounded-[2.5rem] border border-white/10 bg-gradient-to-b from-[#1a2040] to-[#0B1120] p-3 shadow-2xl shadow-accent2/10">
-                  <div className="rounded-[2rem] border border-white/5 bg-[#0f1630] p-5">
+                <div className="rounded-[2.5rem] border border-primary/20 bg-gradient-to-b from-marketing-raised to-marketing p-3 shadow-2xl shadow-primary/20">
+                  <div className="rounded-[2rem] border border-primary/10 bg-marketing-inset p-5">
                     <div className="flex items-start justify-between">
                       <div>
                         <div className="text-[10px] text-white/50">
@@ -447,7 +447,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
                       ].map((m) => (
                         <div
                           key={m.k}
-                          className="rounded-lg bg-white/[0.03] p-3"
+                          className="rounded-lg bg-primary/[0.06] p-3"
                         >
                           <div className="text-[10px] text-white/50">
                             {t(`product.phone.${m.k}` as never)}
@@ -462,7 +462,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
                       ))}
                     </div>
 
-                    <div className="mt-4 rounded-xl bg-white/[0.03] p-3">
+                    <div className="mt-4 rounded-xl bg-primary/[0.06] p-3">
                       <div className="text-[10px] text-white/50">
                         {t("product.phone.weeklyTitle")}
                       </div>
@@ -477,7 +477,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
                       </div>
                     </div>
 
-                    <div className="mt-3 flex items-center justify-between rounded-xl border border-white/5 bg-white/[0.02] p-3">
+                    <div className="mt-3 flex items-center justify-between rounded-xl border border-primary/10 bg-primary/[0.04] p-3">
                       <div>
                         <div className="text-[10px] text-white/50">
                           {t("product.phone.model")}
@@ -502,7 +502,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
       {/* How it works */}
       <section
         id="how-it-works"
-        className="relative scroll-mt-24 bg-[#0B1120] text-white"
+        className="relative scroll-mt-24 bg-marketing text-white"
       >
         <div className="container relative py-24 md:py-32">
           <FadeInSection className="mx-auto max-w-2xl text-center">
@@ -529,7 +529,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
                   <FadeInSection key={step.title} delay={i * 0.08}>
                     <div className="relative flex flex-col items-center text-center">
                       <div className="relative">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/15 bg-primary/[0.06]">
                           <Icon
                             className="h-5 w-5 text-white/80"
                             strokeWidth={1.5}
@@ -555,7 +555,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
       </section>
 
       {/* Why AgroNext */}
-      <section className="relative bg-[#0B1120] text-white">
+      <section className="relative bg-marketing text-white">
         <div className="container relative py-24 md:py-32">
           <FadeInSection className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent2">
@@ -573,7 +573,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
           <div className="mt-14 grid gap-4 md:grid-cols-3">
             {whyCards.map((c, i) => (
               <FadeInSection key={c.title} delay={i * 0.08}>
-                <div className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-8">
+                <div className="h-full rounded-2xl border border-primary/15 bg-primary/[0.07] p-6 md:p-8">
                   <span
                     className={`inline-flex rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wider ${c.tagTone}`}
                   >
@@ -598,7 +598,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
       </section>
 
       {/* Roadmap */}
-      <section className="relative bg-[#0B1120] text-white">
+      <section className="relative bg-marketing text-white">
         <div className="container relative py-24 md:py-32">
           <FadeInSection>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent2">
@@ -633,7 +633,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
                           ? "border-accent2 bg-accent2 shadow-[0_0_14px_theme(colors.accent2.DEFAULT)]"
                           : q.state === "active"
                             ? "border-amber-400 bg-amber-400"
-                            : "border-white/20 bg-[#0B1120]"
+                            : "border-primary/25 bg-marketing"
                       }`}
                     />
                     <div className="text-[10px] font-semibold uppercase tracking-[0.15em] text-white/50">
@@ -656,7 +656,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
       </section>
 
       {/* Demo / Contact */}
-      <section id="demo" className="relative scroll-mt-24 bg-[#0B1120] text-white">
+      <section id="demo" className="relative scroll-mt-24 bg-marketing text-white">
         <div className="container relative py-24 md:py-32">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr]">
             <FadeInSection>
@@ -677,7 +677,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
                 href={`mailto:${t("demo.email")}`}
                 className="mt-10 inline-flex items-center gap-3 text-sm text-white/80 transition-colors hover:text-accent2"
               >
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-white/5">
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-primary/10">
                   <Mail className="h-4 w-4 text-accent2" strokeWidth={1.5} />
                 </span>
                 {t("demo.email")}
@@ -695,7 +695,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 bg-white/[0.03] text-white/70 transition-colors hover:border-accent2/40 hover:text-accent2"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-primary/15 bg-primary/[0.06] text-white/70 transition-colors hover:border-accent2/40 hover:text-accent2"
                   >
                     <Icon className="h-4 w-4" strokeWidth={1.5} />
                   </a>
@@ -704,7 +704,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
             </FadeInSection>
 
             <FadeInSection delay={0.1}>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+              <div className="rounded-2xl border border-primary/15 bg-primary/[0.05] p-6 md:p-8">
                 <DemoForm />
               </div>
             </FadeInSection>
