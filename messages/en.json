@@ -35,11 +35,26 @@
   },
   "landing": {
     "hero": {
-      "eyebrow": "Turkey's Smart Greenhouse Platform",
-      "title": "Manage your greenhouse smarter with AI",
-      "subtitle": "AgroNext is an end-to-end smart agriculture platform built for small and mid-sized greenhouse growers. Track sensor data and get AI-powered recommendations.",
-      "ctaPrimary": "Get Started Free",
-      "ctaSecondary": "Watch Demo"
+      "badge": "Turkey's First Youth-Led AgriTech Startup",
+      "title_start": "For Turkey's greenhouse growers,",
+      "title_italic": "smart",
+      "title_middle": "farming at an",
+      "title_highlight": "accessible",
+      "title_end": "price.",
+      "subtitle": "AI tailored to Turkey's climate, built for mid-sized greenhouse operations.",
+      "cta_demo": "Request a Demo",
+      "cta_how": "How It Works"
+    },
+    "stats": {
+      "accuracy_value": "99%",
+      "accuracy_label": "Sensor Accuracy",
+      "accuracy_sub": "Calibrated GRU model",
+      "speed_value": "<2s",
+      "speed_label": "Data Refresh Rate",
+      "speed_sub": "Real-time sensor reads",
+      "water_value": "30%",
+      "water_label": "Water Savings",
+      "water_sub": "Average user data"
     },
     "features": {
       "title": "Everything your greenhouse needs",
@@ -78,27 +93,6 @@
         "three": {
           "title": "Apply AI insights",
           "description": "Increase yield and cut costs with AI-driven recommendations."
-        }
-      }
-    },
-    "testimonials": {
-      "title": "Trusted by growers",
-      "subtitle": "Producers across Turkey transformed their greenhouses with AgroNext.",
-      "items": {
-        "one": {
-          "name": "Mehmet Kara",
-          "role": "Antalya, Tomato Grower",
-          "quote": "I cut irrigation by 30% with the same yield. Paid back the investment in 6 months."
-        },
-        "two": {
-          "name": "Ayşe Demir",
-          "role": "İzmir, Cucumber Grower",
-          "quote": "I now monitor my greenhouses from my phone. I can check humidity even in the middle of the night."
-        },
-        "three": {
-          "name": "Hakan Yılmaz",
-          "role": "Mersin, Pepper Grower",
-          "quote": "The AI's biopesticide recommendations cut my spraying costs in half."
         }
       }
     },
@@ -193,6 +187,9 @@
   "contact": {
     "title": "Contact",
     "subtitle": "Reach out with your questions and we'll get back to you quickly.",
+    "team_title": "Our Team",
+    "team_subtitle": "The people building AgroNext.",
+    "team_linkedin": "LinkedIn",
     "form": {
       "name": "Your name",
       "email": "Email",

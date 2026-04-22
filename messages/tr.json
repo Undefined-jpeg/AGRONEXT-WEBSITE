@@ -35,11 +35,26 @@
   },
   "landing": {
     "hero": {
-      "eyebrow": "Türkiye'nin Akıllı Sera Platformu",
-      "title": "Yapay zekayla seranızı daha verimli yönetin",
-      "subtitle": "AgroNext, küçük ve orta ölçekli sera çiftçileri için geliştirilmiş uçtan uca akıllı tarım platformudur. Sensör verilerinizi takip edin, AI destekli öneriler alın.",
-      "ctaPrimary": "Ücretsiz Başla",
-      "ctaSecondary": "Demoyu İzle"
+      "badge": "Türkiye'nin İlk Genç AgriTech Girişimi",
+      "title_start": "Türkiye'nin seracıları için",
+      "title_italic": "akıllı",
+      "title_middle": "tarım,",
+      "title_highlight": "erişilebilir",
+      "title_end": "fiyatta",
+      "subtitle": "Orta ölçekli sera işletmeleri için Türkiye iklimine özel yapay zeka.",
+      "cta_demo": "Demo Talep Et",
+      "cta_how": "Nasıl Çalışır"
+    },
+    "stats": {
+      "accuracy_value": "%99",
+      "accuracy_label": "Sensör Doğruluğu",
+      "accuracy_sub": "Kalibre edilmiş GRU modeli",
+      "speed_value": "<2sn",
+      "speed_label": "Veri Güncelleme Hızı",
+      "speed_sub": "Gerçek zamanlı sensör okuma",
+      "water_value": "%30",
+      "water_label": "Su Tasarrufu",
+      "water_sub": "Ortalama kullanıcı verisi"
     },
     "features": {
       "title": "Seranız için ihtiyacınız olan her şey",
@@ -78,27 +93,6 @@
         "three": {
           "title": "AI önerilerini uygulayın",
           "description": "AI destekli öneriler ile verimi artırın, maliyeti düşürün."
-        }
-      }
-    },
-    "testimonials": {
-      "title": "Çiftçilerin güvendiği platform",
-      "subtitle": "Türkiye genelinde üreticiler AgroNext ile seralarını dönüştürdü.",
-      "items": {
-        "one": {
-          "name": "Mehmet Kara",
-          "role": "Antalya, Domates Üreticisi",
-          "quote": "Sulamayı %30 azalttım, verim aynı kaldı. Yatırımı 6 ayda çıkardım."
-        },
-        "two": {
-          "name": "Ayşe Demir",
-          "role": "İzmir, Salatalık Üreticisi",
-          "quote": "Artık seralarımı telefonumdan takip ediyorum. Gece uyandığımda bile nem değerlerini kontrol edebiliyorum."
-        },
-        "three": {
-          "name": "Hakan Yılmaz",
-          "role": "Mersin, Biber Üreticisi",
-          "quote": "AI'nin biyopestisit önerileri ilaçlama maliyetini yarıya indirdi."
         }
       }
     },
@@ -193,6 +187,9 @@
   "contact": {
     "title": "İletişim",
     "subtitle": "Sorularınız için bize ulaşın, en kısa sürede dönüş yapalım.",
+    "team_title": "Ekibimiz",
+    "team_subtitle": "AgroNext'i hayata geçiren ekip.",
+    "team_linkedin": "LinkedIn",
     "form": {
       "name": "Adınız",
       "email": "E-posta",
