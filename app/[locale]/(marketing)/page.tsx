@@ -82,19 +82,19 @@ export default function LandingPage({ params: { locale } }: PageProps) {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-[#0B1120] text-white">
+      {/* Hero — light, airy */}
+      <section className="relative overflow-hidden bg-background text-foreground">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.12]"
+          className="pointer-events-none absolute inset-0 opacity-[0.07]"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
-            backgroundSize: "64px 64px",
+              "linear-gradient(rgba(45,106,79,0.9) 1px, transparent 1px), linear-gradient(90deg, rgba(45,106,79,0.9) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
             maskImage:
-              "radial-gradient(ellipse 80% 60% at 50% 40%, black 50%, transparent 100%)",
+              "radial-gradient(ellipse 80% 60% at 50% 35%, black 55%, transparent 100%)",
             WebkitMaskImage:
-              "radial-gradient(ellipse 80% 60% at 50% 40%, black 50%, transparent 100%)",
+              "radial-gradient(ellipse 80% 60% at 50% 35%, black 55%, transparent 100%)",
           }}
         />
         <div
@@ -102,29 +102,29 @@ export default function LandingPage({ params: { locale } }: PageProps) {
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 70% 45% at 50% 10%, rgba(34,197,94,0.22), transparent 70%)",
+              "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(82,183,136,0.22), transparent 70%)",
           }}
         />
 
-        <div className="container relative flex flex-col items-center py-24 text-center md:py-32">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#22C55E]" />
+        <div className="container relative flex flex-col items-center py-24 pb-40 text-center md:py-32 md:pb-56">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary/90 backdrop-blur">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
             {t("hero.badge")}
           </span>
 
           <h1 className="mt-8 max-w-4xl text-4xl font-black leading-[1.05] tracking-tight text-balance md:text-6xl lg:text-7xl">
             {t("hero.title_start")}{" "}
-            <span className="italic text-[#22C55E]">
+            <span className="italic text-primary">
               {t("hero.title_italic")}
             </span>{" "}
             {t("hero.title_middle")}{" "}
-            <span className="font-black text-[#22C55E]">
+            <span className="font-black text-primary">
               {t("hero.title_highlight")}
             </span>{" "}
             {t("hero.title_end")}
           </h1>
 
-          <p className="mt-6 max-w-2xl text-base text-white/70 md:text-lg">
+          <p className="mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
             {t("hero.subtitle")}
           </p>
 
@@ -132,7 +132,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
             <Button
               asChild
               size="lg"
-              className="bg-[#22C55E] text-white shadow-lg shadow-green-900/30 hover:bg-[#16A34A]"
+              className="bg-primary text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary/90"
             >
               <Link href="/contact">
                 {t("hero.cta_demo")}
@@ -143,7 +143,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
               asChild
               size="lg"
               variant="outline"
-              className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"
+              className="border-border bg-card/60 text-foreground backdrop-blur hover:bg-card"
             >
               <Link href="#how-it-works">{t("hero.cta_how")} →</Link>
             </Button>
@@ -151,10 +151,10 @@ export default function LandingPage({ params: { locale } }: PageProps) {
         </div>
       </section>
 
-      {/* Stats band — sits at the dark→light boundary */}
-      <section className="bg-background">
-        <div className="container -mt-10 pb-12 md:-mt-14 md:pb-16">
-          <div className="mx-auto max-w-5xl rounded-2xl border border-border bg-card shadow-lg">
+      {/* Stats band — its own section, sits under the hero with breathing room */}
+      <section className="relative -mt-24 md:-mt-32">
+        <div className="container">
+          <div className="mx-auto max-w-5xl rounded-2xl border border-border bg-card/95 shadow-xl backdrop-blur">
             <div className="grid grid-cols-1 divide-y divide-border sm:grid-cols-3 sm:divide-x sm:divide-y-0">
               {stats.map((s) => (
                 <div
@@ -178,7 +178,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
       </section>
 
       {/* Features */}
-      <section className="border-t bg-muted/30">
+      <section className="bg-muted/30 mt-20 md:mt-28">
         <div className="container py-20">
           <FadeInSection className="max-w-2xl mb-12">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
@@ -234,21 +234,58 @@ export default function LandingPage({ params: { locale } }: PageProps) {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="container py-20">
+      {/* CTA — full-bleed band with soft top/bottom transitions */}
+      <section className="relative w-full overflow-hidden bg-primary text-primary-foreground">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+            maskImage:
+              "radial-gradient(ellipse 70% 60% at 50% 50%, black 50%, transparent 100%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 70% 60% at 50% 50%, black 50%, transparent 100%)",
+          }}
+        />
+
         <FadeInSection>
-          <div className="rounded-2xl bg-primary text-primary-foreground p-10 md:p-14 text-center">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-4">{t("cta.title")}</h2>
-            <p className="text-primary-foreground/85 mb-8 max-w-xl mx-auto">
+          <div className="container relative flex flex-col items-center py-24 text-center md:py-32">
+            <h2 className="text-3xl font-semibold md:text-5xl md:leading-tight max-w-3xl">
+              {t("cta.title")}
+            </h2>
+            <p className="mt-5 max-w-xl text-primary-foreground/85 md:text-lg">
               {t("cta.subtitle")}
             </p>
-            <Button asChild variant="secondary" size="lg">
-              <Link href="/auth/register">
-                {t("cta.button")}
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-            <p className="mt-4 text-xs text-primary-foreground/70">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+              <Button asChild size="lg" variant="secondary">
+                <Link href="/auth/register">
+                  {t("cta.button")}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+              >
+                <Link href="/contact">
+                  {t("hero.cta_demo")}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+            <p className="mt-6 text-xs uppercase tracking-[0.18em] text-primary-foreground/70">
               {tCommon("tagline")}
             </p>
           </div>
