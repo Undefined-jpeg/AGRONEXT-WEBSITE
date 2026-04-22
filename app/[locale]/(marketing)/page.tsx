@@ -649,50 +649,46 @@ export default function LandingPage({ params: { locale } }: PageProps) {
         </div>
       </section>
 
-      {/* Demo / Contact — featured dark band with top & bottom gradient fades */}
+      {/* Demo / Contact — full-bleed dark band with top & bottom gradient fades */}
       <section
         id="demo"
-        className="relative scroll-mt-24 bg-background"
+        className="relative w-full scroll-mt-24 overflow-hidden bg-marketing text-white"
       >
-        {/* Spacer so the fade isn't cropped */}
-        <div className="h-8 md:h-12" />
+        {/* Top fade into background */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-32 bg-gradient-to-b from-background via-background/70 to-transparent"
+        />
+        {/* Bottom fade into background */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-32 bg-gradient-to-t from-background via-background/70 to-transparent"
+        />
+        {/* Soft radial glow */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 55% 45% at 50% 50%, rgba(52,211,153,0.14), transparent 70%)",
+          }}
+        />
+        {/* Faint grid */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.55) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.55) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+            maskImage:
+              "radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 100%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 100%)",
+          }}
+        />
 
-        <div className="relative mx-auto max-w-[1400px] overflow-hidden rounded-[2.5rem] border border-primary/15 bg-marketing text-white shadow-2xl shadow-primary/15 md:mx-6 lg:mx-10">
-          {/* Top fade */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-28 bg-gradient-to-b from-background via-background/60 to-transparent"
-          />
-          {/* Bottom fade */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-28 bg-gradient-to-t from-background via-background/60 to-transparent"
-          />
-          {/* Soft radial glow */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(52,211,153,0.14), transparent 70%)",
-            }}
-          />
-          {/* Faint grid */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 opacity-[0.08]"
-            style={{
-              backgroundImage:
-                "linear-gradient(rgba(255,255,255,0.55) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.55) 1px, transparent 1px)",
-              backgroundSize: "56px 56px",
-              maskImage:
-                "radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%)",
-              WebkitMaskImage:
-                "radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%)",
-            }}
-          />
-
-          <div className="container relative z-[2] py-20 md:py-28">
+        <div className="container relative z-[2] py-24 md:py-32 lg:py-40">
             <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr]">
               <FadeInSection>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent2">
@@ -752,10 +748,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
                 </div>
               </FadeInSection>
             </div>
-          </div>
         </div>
-
-        <div className="h-8 md:h-12" />
       </section>
     </>
   )
