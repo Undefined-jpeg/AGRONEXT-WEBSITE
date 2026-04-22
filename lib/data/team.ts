@@ -13,24 +13,24 @@ export interface TeamMember {
  */
 export const teamMembers: TeamMember[] = [
   {
-    name: "Yusuf Kaan",
-    title: "Kurucu & CEO",
+    name: "Tuna Özkan Yapıcı",
+    title: "CEO",
     linkedinUrl: "https://www.linkedin.com/",
-    avatarInitials: "YK",
+    avatarInitials: "TÖ",
     avatarImage: null,
   },
   {
-    name: "Ada Demir",
-    title: "CTO",
+    name: "Yusuf Mete Akınlı",
+    title: "Kurucu Ortak",
     linkedinUrl: "https://www.linkedin.com/",
-    avatarInitials: "AD",
+    avatarInitials: "YA",
     avatarImage: null,
   },
   {
-    name: "Mert Aksoy",
-    title: "AI / ML Lead",
+    name: "Ali Kaan Kaya",
+    title: "Kurucu Ortak",
     linkedinUrl: "https://www.linkedin.com/",
-    avatarInitials: "MA",
+    avatarInitials: "AK",
     avatarImage: null,
   },
 ]
