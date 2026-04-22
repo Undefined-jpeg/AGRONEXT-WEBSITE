@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import { formatDate } from "@/lib/utils"
 
-export const dynamic = "force-dynamic"
+export const revalidate = 1800
 
 interface PageProps {
   params: { locale: string; slug: string }

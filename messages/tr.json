@@ -282,6 +282,69 @@
           "5": "Özel sözleşme"
         }
       }
+    },
+    "compare": {
+      "eyebrow": "Karşılaştırma",
+      "title_a": "Diğer sistemlerle",
+      "title_b": "fark açık",
+      "columns": {
+        "criterion": "Kriter",
+        "agronext": "AgroNext",
+        "netafim": "Netafim",
+        "priva": "Priva",
+        "manual": "Manuel Seracılık"
+      },
+      "rows": {
+        "cost": {
+          "label": "Kurulum Maliyeti",
+          "agronext": "~$5.000–20.000",
+          "netafim": "$50.000–200.000",
+          "priva": "$80.000–300.000",
+          "manual": "Düşük (emek yoğun)"
+        },
+        "ai": {
+          "label": "Türkiye'ye Özel AI",
+          "agronext": "Evet",
+          "netafim": "",
+          "priva": "",
+          "manual": ""
+        },
+        "setup": {
+          "label": "Kurulum Kolaylığı",
+          "agronext": "4 saatte",
+          "netafim": "Haftalar",
+          "priva": "Haftalar",
+          "manual": "—"
+        },
+        "solar": {
+          "label": "Güneş Enerjisi",
+          "agronext": "Dahil",
+          "netafim": "Ekstra",
+          "priva": "Ekstra",
+          "manual": ""
+        },
+        "mobile": {
+          "label": "Mobil Uygulama",
+          "agronext": "Tam kontrol",
+          "netafim": "Kısıtlı",
+          "priva": "Kısıtlı",
+          "manual": ""
+        },
+        "scale": {
+          "label": "Ölçeklenebilirlik",
+          "agronext": "Modüler",
+          "netafim": "Evet",
+          "priva": "Evet",
+          "manual": ""
+        },
+        "segment": {
+          "label": "Orta Ölçekli Segment",
+          "agronext": "Odak",
+          "netafim": "Büyük işletme",
+          "priva": "Büyük işletme",
+          "manual": "—"
+        }
+      }
     }
   },
   "about": {

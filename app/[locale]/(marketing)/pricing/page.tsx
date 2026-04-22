@@ -1,11 +1,18 @@
 import { asc } from "drizzle-orm"
 import { setRequestLocale, getTranslations } from "next-intl/server"
+import dynamic from "next/dynamic"
 import { db } from "@/lib/db"
 import { pricingPlans } from "@/lib/db/schema"
 import { PricingCards } from "@/components/pricing/pricing-cards"
-import { AIChatDrawer } from "@/components/pricing/ai-chat-drawer"
+import { ComparisonTable } from "@/components/pricing/comparison-table"
 
-export const dynamic = "force-dynamic"
+const AIChatDrawer = dynamic(
+  () =>
+    import("@/components/pricing/ai-chat-drawer").then((m) => m.AIChatDrawer),
+  { ssr: false }
+)
+
+export const revalidate = 3600
 
 interface PageProps {
   params: { locale: string }
@@ -32,6 +39,8 @@ export default async function PricingPage({ params: { locale } }: PageProps) {
 
         <PricingCards plans={plans} />
       </section>
+
+      <ComparisonTable locale={locale} />
 
       <AIChatDrawer />
     </>

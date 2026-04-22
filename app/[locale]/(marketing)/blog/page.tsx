@@ -7,7 +7,7 @@ import { Link } from "@/lib/i18n/routing"
 import { Card, CardContent } from "@/components/ui/card"
 import { formatDate } from "@/lib/utils"
 
-export const dynamic = "force-dynamic"
+export const revalidate = 1800
 
 interface PageProps {
   params: { locale: string }

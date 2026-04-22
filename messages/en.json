@@ -282,6 +282,69 @@
           "5": "Custom contract"
         }
       }
+    },
+    "compare": {
+      "eyebrow": "Comparison",
+      "title_a": "A clear gap",
+      "title_b": "vs. other systems",
+      "columns": {
+        "criterion": "Criterion",
+        "agronext": "AgroNext",
+        "netafim": "Netafim",
+        "priva": "Priva",
+        "manual": "Manual Farming"
+      },
+      "rows": {
+        "cost": {
+          "label": "Setup Cost",
+          "agronext": "~$5,000–20,000",
+          "netafim": "$50,000–200,000",
+          "priva": "$80,000–300,000",
+          "manual": "Low (labor-heavy)"
+        },
+        "ai": {
+          "label": "Turkey-tuned AI",
+          "agronext": "Yes",
+          "netafim": "",
+          "priva": "",
+          "manual": ""
+        },
+        "setup": {
+          "label": "Install Time",
+          "agronext": "4 hours",
+          "netafim": "Weeks",
+          "priva": "Weeks",
+          "manual": "—"
+        },
+        "solar": {
+          "label": "Solar Power",
+          "agronext": "Included",
+          "netafim": "Extra",
+          "priva": "Extra",
+          "manual": ""
+        },
+        "mobile": {
+          "label": "Mobile App",
+          "agronext": "Full control",
+          "netafim": "Limited",
+          "priva": "Limited",
+          "manual": ""
+        },
+        "scale": {
+          "label": "Scalability",
+          "agronext": "Modular",
+          "netafim": "Yes",
+          "priva": "Yes",
+          "manual": ""
+        },
+        "segment": {
+          "label": "Mid-scale Segment",
+          "agronext": "Focus",
+          "netafim": "Enterprise",
+          "priva": "Enterprise",
+          "manual": "—"
+        }
+      }
     }
   },
   "about": {
