@@ -1,0 +1,352 @@
+{
+  "common": {
+    "brand": "AgroNext",
+    "tagline": "Smart Greenhouse Management",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "search": "Search",
+    "close": "Close",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No",
+    "comingSoon": "This feature will be available soon.",
+    "learnMore": "Learn more",
+    "getStarted": "Get Started Free",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out",
+    "dashboard": "Dashboard",
+    "language": "Language",
+    "theme": "Theme"
+  },
+  "nav": {
+    "home": "Home",
+    "pricing": "Pricing",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "Turkey's Smart Greenhouse Platform",
+      "title": "Manage your greenhouse smarter with AI",
+      "subtitle": "AgroNext is an end-to-end smart agriculture platform built for small and mid-sized greenhouse growers. Track sensor data and get AI-powered recommendations.",
+      "ctaPrimary": "Get Started Free",
+      "ctaSecondary": "Watch Demo"
+    },
+    "features": {
+      "title": "Everything your greenhouse needs",
+      "subtitle": "Sensor tracking, AI analysis, and mobile access in one platform.",
+      "items": {
+        "ai": {
+          "title": "AI Analysis",
+          "description": "Your greenhouse data is processed by AI, generating irrigation, fertilization, and climate recommendations automatically."
+        },
+        "sensors": {
+          "title": "Sensor Tracking",
+          "description": "Monitor temperature, humidity, soil moisture, light, and CO2 in real time."
+        },
+        "mobile": {
+          "title": "Mobile App",
+          "description": "Access your greenhouse remotely and get instant alerts when thresholds are crossed."
+        },
+        "biopest": {
+          "title": "Biopesticide Advice",
+          "description": "Pest detection with organic-farming-compatible recommendations."
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "Get started in three steps",
+      "subtitle": "Easy setup, fast results.",
+      "steps": {
+        "one": {
+          "title": "Install sensors",
+          "description": "Place AgroNext sensors in your greenhouse and connect via Wi-Fi."
+        },
+        "two": {
+          "title": "Monitor data",
+          "description": "View all live data and historical trends from your dashboard."
+        },
+        "three": {
+          "title": "Apply AI insights",
+          "description": "Increase yield and cut costs with AI-driven recommendations."
+        }
+      }
+    },
+    "testimonials": {
+      "title": "Trusted by growers",
+      "subtitle": "Producers across Turkey transformed their greenhouses with AgroNext.",
+      "items": {
+        "one": {
+          "name": "Mehmet Kara",
+          "role": "Antalya, Tomato Grower",
+          "quote": "I cut irrigation by 30% with the same yield. Paid back the investment in 6 months."
+        },
+        "two": {
+          "name": "Ayşe Demir",
+          "role": "İzmir, Cucumber Grower",
+          "quote": "I now monitor my greenhouses from my phone. I can check humidity even in the middle of the night."
+        },
+        "three": {
+          "name": "Hakan Yılmaz",
+          "role": "Mersin, Pepper Grower",
+          "quote": "The AI's biopesticide recommendations cut my spraying costs in half."
+        }
+      }
+    },
+    "cta": {
+      "title": "Make your greenhouse smart today",
+      "subtitle": "Try 14 days free, no credit card required.",
+      "button": "Start Now"
+    }
+  },
+  "pricing": {
+    "title": "Pick the right plan",
+    "subtitle": "Start with a small greenhouse and scale all the way to enterprise.",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "yearlyBadge": "20% off",
+    "popular": "Most Popular",
+    "perMonth": "/mo",
+    "perYear": "/yr",
+    "free": "Free",
+    "cta": "Choose Plan",
+    "aiHelper": {
+      "title": "Help picking a plan",
+      "subtitle": "Let the AgroNext assistant suggest the best plan for you.",
+      "placeholder": "Ask something... (e.g. which plan fits a 500m² greenhouse?)",
+      "send": "Send",
+      "dormantMessage": "This feature will be available soon. You're using a demo version for now.",
+      "open": "AI Assistant"
+    },
+    "plans": {
+      "starter": {
+        "name": "Free",
+        "description": "For trials or small hobby greenhouses",
+        "features": {
+          "1": "1 greenhouse",
+          "2": "Up to 5 sensors",
+          "3": "Daily data summary",
+          "4": "Community support"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "For mid-sized professional growers",
+        "features": {
+          "1": "5 greenhouses",
+          "2": "Unlimited sensors",
+          "3": "AI analysis & recommendations",
+          "4": "Mobile app",
+          "5": "Email support"
+        }
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "For large businesses and cooperatives",
+        "features": {
+          "1": "Unlimited greenhouses",
+          "2": "Custom AI model training",
+          "3": "API access",
+          "4": "Priority 24/7 support",
+          "5": "Custom contract"
+        }
+      }
+    }
+  },
+  "about": {
+    "title": "Who we are",
+    "subtitle": "We're on a mission to make ag-tech accessible to every grower.",
+    "mission": {
+      "title": "Our mission",
+      "body": "Bring AI and IoT to Turkish growers at an affordable price. Help every greenhouse understand and extract value from its data."
+    },
+    "vision": {
+      "title": "Our vision",
+      "body": "By 2030, lead the digitalization of 50,000 greenhouses across Turkey; make sustainable agriculture within reach."
+    },
+    "values": {
+      "title": "Our values",
+      "items": {
+        "one": { "title": "Transparency", "description": "Transparent pricing, data, and communication." },
+        "two": { "title": "Accessibility", "description": "Technology must be accessible to growers of every size." },
+        "three": { "title": "Sustainability", "description": "Less water, fewer chemicals, more yield." }
+      }
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Smart agriculture, greenhouse management, and news from AgroNext.",
+    "readMore": "Read more",
+    "publishedOn": "Published on",
+    "backToList": "All posts",
+    "empty": "No posts published yet."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Reach out with your questions and we'll get back to you quickly.",
+    "form": {
+      "name": "Your name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Your message",
+      "submit": "Send",
+      "submitting": "Sending...",
+      "success": "Your message has been sent. Thank you!",
+      "error": "Something went wrong, please try again."
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Sign in to your account",
+      "subtitle": "Continue with email and password or with Google.",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign In",
+      "submitting": "Signing in...",
+      "google": "Continue with Google",
+      "forgot": "Forgot your password?",
+      "noAccount": "Don't have an account?",
+      "register": "Sign up",
+      "error": "Invalid email or password.",
+      "or": "or"
+    },
+    "register": {
+      "title": "Create a free account",
+      "subtitle": "Start using AgroNext in minutes.",
+      "name": "Your name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create Account",
+      "submitting": "Creating...",
+      "hasAccount": "Already have an account?",
+      "login": "Sign in",
+      "error": "Something went wrong during registration.",
+      "emailInUse": "This email is already in use."
+    },
+    "forgot": {
+      "title": "Reset your password",
+      "subtitle": "We'll send a reset link to your email.",
+      "email": "Email",
+      "submit": "Send reset link",
+      "success": "Check your email inbox.",
+      "backToLogin": "Back to sign in"
+    }
+  },
+  "dashboard": {
+    "nav": {
+      "overview": "Overview",
+      "greenhouse": "Greenhouses",
+      "blog": "Blog Admin",
+      "settings": "Settings"
+    },
+    "overview": {
+      "title": "Overview",
+      "welcome": "Welcome back",
+      "stats": {
+        "activeGreenhouses": "Active Greenhouses",
+        "temperature": "Latest Temperature",
+        "humidity": "Latest Humidity",
+        "soilMoisture": "Soil Moisture"
+      },
+      "chartTitle": "Last 7 Days — Temperature & Humidity",
+      "recentReadings": "Recent Sensor Readings",
+      "noData": "No data yet. Add a greenhouse to get started.",
+      "temperatureLabel": "Temperature (°C)",
+      "humidityLabel": "Humidity (%)",
+      "table": {
+        "greenhouse": "Greenhouse",
+        "temperature": "Temp.",
+        "humidity": "Humidity",
+        "soil": "Soil",
+        "light": "Light",
+        "co2": "CO2",
+        "time": "Time"
+      }
+    },
+    "greenhouse": {
+      "title": "My Greenhouses",
+      "empty": "You don't have any greenhouses yet.",
+      "location": "Location",
+      "area": "Area",
+      "createdAt": "Created",
+      "viewReadings": "View Readings",
+      "historyTitle": "Sensor Reading History",
+      "backToList": "Back to list"
+    },
+    "blog": {
+      "title": "Blog Admin",
+      "newPost": "New Post",
+      "editPost": "Edit Post",
+      "table": {
+        "title": "Title",
+        "author": "Author",
+        "status": "Status",
+        "updated": "Updated",
+        "actions": "Actions"
+      },
+      "status": {
+        "published": "Published",
+        "draft": "Draft"
+      },
+      "form": {
+        "slug": "Slug (URL)",
+        "coverImage": "Cover image URL",
+        "titleTr": "Title (TR)",
+        "titleEn": "Title (EN)",
+        "excerptTr": "Excerpt (TR)",
+        "excerptEn": "Excerpt (EN)",
+        "bodyTr": "Body (TR)",
+        "bodyEn": "Body (EN)",
+        "published": "Publish"
+      },
+      "empty": "No posts yet.",
+      "confirmDelete": "Are you sure you want to delete this post?",
+      "onlyAdmin": "Only administrators can access this page."
+    },
+    "settings": {
+      "title": "Account Settings",
+      "profile": {
+        "title": "Profile",
+        "name": "Your name",
+        "email": "Email",
+        "emailLocked": "Email cannot be changed.",
+        "save": "Save",
+        "success": "Your profile was updated."
+      },
+      "password": {
+        "title": "Change Password",
+        "current": "Current password",
+        "new": "New password",
+        "confirm": "Confirm new password",
+        "save": "Update Password",
+        "success": "Your password has been updated.",
+        "oauthOnly": "You're signed in with Google, so password change does not apply."
+      }
+    }
+  },
+  "errors": {
+    "generic": "An error occurred",
+    "unauthorized": "Unauthorized",
+    "forbidden": "You don't have permission",
+    "notFound": "Not found",
+    "validation": "Invalid data",
+    "serverError": "Server error"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "privacy": "Privacy",
+    "terms": "Terms of Service"
+  }
+}

@@ -1,0 +1,352 @@
+{
+  "common": {
+    "brand": "AgroNext",
+    "tagline": "Akıllı Sera Yönetim Sistemi",
+    "loading": "Yükleniyor...",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "create": "Oluştur",
+    "back": "Geri",
+    "next": "İleri",
+    "submit": "Gönder",
+    "search": "Ara",
+    "close": "Kapat",
+    "confirm": "Onayla",
+    "yes": "Evet",
+    "no": "Hayır",
+    "comingSoon": "Bu özellik yakında aktif olacak.",
+    "learnMore": "Daha fazla bilgi",
+    "getStarted": "Ücretsiz Başla",
+    "signIn": "Giriş Yap",
+    "signUp": "Kayıt Ol",
+    "signOut": "Çıkış Yap",
+    "dashboard": "Panel",
+    "language": "Dil",
+    "theme": "Tema"
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "pricing": "Fiyatlandırma",
+    "about": "Hakkımızda",
+    "blog": "Blog",
+    "contact": "İletişim"
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "Türkiye'nin Akıllı Sera Platformu",
+      "title": "Yapay zekayla seranızı daha verimli yönetin",
+      "subtitle": "AgroNext, küçük ve orta ölçekli sera çiftçileri için geliştirilmiş uçtan uca akıllı tarım platformudur. Sensör verilerinizi takip edin, AI destekli öneriler alın.",
+      "ctaPrimary": "Ücretsiz Başla",
+      "ctaSecondary": "Demoyu İzle"
+    },
+    "features": {
+      "title": "Seranız için ihtiyacınız olan her şey",
+      "subtitle": "Tek bir platformda sensör takibi, AI analizi ve mobil erişim.",
+      "items": {
+        "ai": {
+          "title": "AI Analiz",
+          "description": "Sera verileriniz yapay zeka ile işlenir; sulama, gübreleme ve iklim önerileri otomatik oluşturulur."
+        },
+        "sensors": {
+          "title": "Sensör Takibi",
+          "description": "Sıcaklık, nem, toprak nemi, ışık ve CO2 değerlerini gerçek zamanlı izleyin."
+        },
+        "mobile": {
+          "title": "Mobil Uygulama",
+          "description": "Seranıza uzaktan erişin, kritik eşiklerde anlık bildirim alın."
+        },
+        "biopest": {
+          "title": "Biyopestisit Önerileri",
+          "description": "Zararlı tespiti ve organik tarımla uyumlu çözüm önerileri."
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "Üç adımda başlayın",
+      "subtitle": "Kurulum kolay, sonuçlar hızlı.",
+      "steps": {
+        "one": {
+          "title": "Sensörleri kurun",
+          "description": "Seranıza AgroNext sensörlerini yerleştirin, Wi-Fi ile bağlantı kurun."
+        },
+        "two": {
+          "title": "Verileri takip edin",
+          "description": "Panel üzerinden tüm verileri ve geçmiş trendleri görüntüleyin."
+        },
+        "three": {
+          "title": "AI önerilerini uygulayın",
+          "description": "AI destekli öneriler ile verimi artırın, maliyeti düşürün."
+        }
+      }
+    },
+    "testimonials": {
+      "title": "Çiftçilerin güvendiği platform",
+      "subtitle": "Türkiye genelinde üreticiler AgroNext ile seralarını dönüştürdü.",
+      "items": {
+        "one": {
+          "name": "Mehmet Kara",
+          "role": "Antalya, Domates Üreticisi",
+          "quote": "Sulamayı %30 azalttım, verim aynı kaldı. Yatırımı 6 ayda çıkardım."
+        },
+        "two": {
+          "name": "Ayşe Demir",
+          "role": "İzmir, Salatalık Üreticisi",
+          "quote": "Artık seralarımı telefonumdan takip ediyorum. Gece uyandığımda bile nem değerlerini kontrol edebiliyorum."
+        },
+        "three": {
+          "name": "Hakan Yılmaz",
+          "role": "Mersin, Biber Üreticisi",
+          "quote": "AI'nin biyopestisit önerileri ilaçlama maliyetini yarıya indirdi."
+        }
+      }
+    },
+    "cta": {
+      "title": "Seranızı bugün akıllandırın",
+      "subtitle": "14 gün ücretsiz deneyin, kredi kartı gerekmez.",
+      "button": "Hemen Başla"
+    }
+  },
+  "pricing": {
+    "title": "Size uygun planı seçin",
+    "subtitle": "Küçük bir serayla başlayıp kurumsal ölçeğe kadar büyüyebilirsiniz.",
+    "monthly": "Aylık",
+    "yearly": "Yıllık",
+    "yearlyBadge": "%20 indirim",
+    "popular": "En Popüler",
+    "perMonth": "/ay",
+    "perYear": "/yıl",
+    "free": "Ücretsiz",
+    "cta": "Planı Seç",
+    "aiHelper": {
+      "title": "Plan seçiminde yardım",
+      "subtitle": "AgroNext asistanı size en uygun planı önersin.",
+      "placeholder": "Soru yazın... (örn. 500m² sera için hangi plan uygun?)",
+      "send": "Gönder",
+      "dormantMessage": "Bu özellik yakında aktif olacak. Şimdilik demo sürümünü kullanıyorsunuz.",
+      "open": "AI Asistanı"
+    },
+    "plans": {
+      "starter": {
+        "name": "Ücretsiz",
+        "description": "Deneme amaçlı ya da küçük hobi seraları için",
+        "features": {
+          "1": "1 sera",
+          "2": "5 sensör desteği",
+          "3": "Günlük veri özeti",
+          "4": "Topluluk desteği"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Orta ölçekli profesyonel üreticiler için",
+        "features": {
+          "1": "5 sera",
+          "2": "Sınırsız sensör",
+          "3": "AI analiz ve öneriler",
+          "4": "Mobil uygulama",
+          "5": "E-posta desteği"
+        }
+      },
+      "enterprise": {
+        "name": "Kurumsal",
+        "description": "Büyük işletmeler ve kooperatifler için",
+        "features": {
+          "1": "Sınırsız sera",
+          "2": "Özel AI modeli eğitimi",
+          "3": "API erişimi",
+          "4": "Öncelikli 7/24 destek",
+          "5": "Özel sözleşme"
+        }
+      }
+    }
+  },
+  "about": {
+    "title": "Biz kimiz?",
+    "subtitle": "Türk çiftçisinin teknolojiye erişimini kolaylaştırmak için kurulduk.",
+    "mission": {
+      "title": "Misyonumuz",
+      "body": "Yapay zeka ve IoT teknolojilerini uygun fiyatla Türk üreticisine ulaştırmak. Her seranın verilerini anlamasını ve bu veriden değer üretmesini sağlamak."
+    },
+    "vision": {
+      "title": "Vizyonumuz",
+      "body": "2030 yılına kadar Türkiye'deki 50.000 seranın dijitalleşmesine öncülük etmek; sürdürülebilir tarımı ulaşılabilir kılmak."
+    },
+    "values": {
+      "title": "Değerlerimiz",
+      "items": {
+        "one": { "title": "Şeffaflık", "description": "Fiyatlandırmada, verilerde ve iletişimde şeffafız." },
+        "two": { "title": "Erişilebilirlik", "description": "Teknoloji her büyüklükteki üretici için erişilebilir olmalı." },
+        "three": { "title": "Sürdürülebilirlik", "description": "Daha az su, daha az ilaç, daha fazla verim." }
+      }
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Akıllı tarım, sera yönetimi ve AgroNext'ten haberler.",
+    "readMore": "Devamını oku",
+    "publishedOn": "Yayınlanma tarihi",
+    "backToList": "Tüm yazılar",
+    "empty": "Henüz yayınlanmış bir yazı yok."
+  },
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "Sorularınız için bize ulaşın, en kısa sürede dönüş yapalım.",
+    "form": {
+      "name": "Adınız",
+      "email": "E-posta",
+      "subject": "Konu",
+      "message": "Mesajınız",
+      "submit": "Gönder",
+      "submitting": "Gönderiliyor...",
+      "success": "Mesajınız iletildi. Teşekkürler!",
+      "error": "Bir hata oluştu, lütfen tekrar deneyin."
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Hesabınıza giriş yapın",
+      "subtitle": "E-posta ve şifrenizle ya da Google ile devam edin.",
+      "email": "E-posta",
+      "password": "Şifre",
+      "submit": "Giriş Yap",
+      "submitting": "Giriş yapılıyor...",
+      "google": "Google ile devam et",
+      "forgot": "Şifrenizi mi unuttunuz?",
+      "noAccount": "Hesabınız yok mu?",
+      "register": "Kayıt olun",
+      "error": "E-posta veya şifre hatalı.",
+      "or": "veya"
+    },
+    "register": {
+      "title": "Ücretsiz hesap oluşturun",
+      "subtitle": "Dakikalar içinde AgroNext'i kullanmaya başlayın.",
+      "name": "Adınız",
+      "email": "E-posta",
+      "password": "Şifre",
+      "submit": "Hesap Oluştur",
+      "submitting": "Oluşturuluyor...",
+      "hasAccount": "Zaten hesabınız var mı?",
+      "login": "Giriş yapın",
+      "error": "Kayıt sırasında bir hata oluştu.",
+      "emailInUse": "Bu e-posta zaten kullanılıyor."
+    },
+    "forgot": {
+      "title": "Şifrenizi sıfırlayın",
+      "subtitle": "E-posta adresinize sıfırlama bağlantısı gönderelim.",
+      "email": "E-posta",
+      "submit": "Sıfırlama bağlantısı gönder",
+      "success": "E-posta hesabınızı kontrol edin.",
+      "backToLogin": "Girişe dön"
+    }
+  },
+  "dashboard": {
+    "nav": {
+      "overview": "Genel Bakış",
+      "greenhouse": "Seralar",
+      "blog": "Blog Yönetimi",
+      "settings": "Ayarlar"
+    },
+    "overview": {
+      "title": "Genel Bakış",
+      "welcome": "Hoş geldin",
+      "stats": {
+        "activeGreenhouses": "Aktif Sera",
+        "temperature": "Son Sıcaklık",
+        "humidity": "Son Nem",
+        "soilMoisture": "Toprak Nemi"
+      },
+      "chartTitle": "Son 7 Gün — Sıcaklık & Nem",
+      "recentReadings": "Son Sensör Okumaları",
+      "noData": "Henüz veri yok. Başlamak için bir sera ekleyin.",
+      "temperatureLabel": "Sıcaklık (°C)",
+      "humidityLabel": "Nem (%)",
+      "table": {
+        "greenhouse": "Sera",
+        "temperature": "Sıcaklık",
+        "humidity": "Nem",
+        "soil": "Toprak",
+        "light": "Işık",
+        "co2": "CO2",
+        "time": "Zaman"
+      }
+    },
+    "greenhouse": {
+      "title": "Seralarım",
+      "empty": "Henüz bir seranız yok.",
+      "location": "Konum",
+      "area": "Alan",
+      "createdAt": "Oluşturulma",
+      "viewReadings": "Okumaları Gör",
+      "historyTitle": "Sensör Okuma Geçmişi",
+      "backToList": "Sera listesine dön"
+    },
+    "blog": {
+      "title": "Blog Yönetimi",
+      "newPost": "Yeni Yazı",
+      "editPost": "Yazıyı Düzenle",
+      "table": {
+        "title": "Başlık",
+        "author": "Yazar",
+        "status": "Durum",
+        "updated": "Güncellendi",
+        "actions": "İşlemler"
+      },
+      "status": {
+        "published": "Yayında",
+        "draft": "Taslak"
+      },
+      "form": {
+        "slug": "Slug (URL)",
+        "coverImage": "Kapak Görseli URL",
+        "titleTr": "Başlık (TR)",
+        "titleEn": "Başlık (EN)",
+        "excerptTr": "Özet (TR)",
+        "excerptEn": "Özet (EN)",
+        "bodyTr": "İçerik (TR)",
+        "bodyEn": "İçerik (EN)",
+        "published": "Yayınla"
+      },
+      "empty": "Henüz yazı yok.",
+      "confirmDelete": "Bu yazıyı silmek istediğinizden emin misiniz?",
+      "onlyAdmin": "Bu bölüme yalnızca yöneticiler erişebilir."
+    },
+    "settings": {
+      "title": "Hesap Ayarları",
+      "profile": {
+        "title": "Profil Bilgileri",
+        "name": "Adınız",
+        "email": "E-posta",
+        "emailLocked": "E-posta değiştirilemez.",
+        "save": "Kaydet",
+        "success": "Profiliniz güncellendi."
+      },
+      "password": {
+        "title": "Şifre Değiştir",
+        "current": "Mevcut şifre",
+        "new": "Yeni şifre",
+        "confirm": "Yeni şifre tekrar",
+        "save": "Şifreyi Güncelle",
+        "success": "Şifreniz güncellendi.",
+        "oauthOnly": "Google hesabıyla girdiğiniz için şifre değiştirme uygulanmaz."
+      }
+    }
+  },
+  "errors": {
+    "generic": "Bir hata oluştu",
+    "unauthorized": "Yetkisiz erişim",
+    "forbidden": "Bu işleme yetkiniz yok",
+    "notFound": "Kayıt bulunamadı",
+    "validation": "Geçersiz veri",
+    "serverError": "Sunucu hatası"
+  },
+  "footer": {
+    "rights": "Tüm hakları saklıdır.",
+    "product": "Ürün",
+    "company": "Şirket",
+    "legal": "Yasal",
+    "privacy": "Gizlilik",
+    "terms": "Kullanım Koşulları"
+  }
+}

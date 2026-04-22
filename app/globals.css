@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Agricultural theme — earth tones + green accents */
+    /* Background: #F8FAF5 */
+    --background: 90 35% 97%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    /* Primary Green #2D6A4F */
+    --primary: 152 41% 30%;
+    --primary-foreground: 0 0% 100%;
+    /* Light Green #52B788 */
+    --primary-light: 147 41% 52%;
+
+    --secondary: 90 20% 93%;
+    --secondary-foreground: 152 41% 18%;
+
+    --muted: 90 20% 94%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 147 41% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Earth Brown #6B4F3A */
+    --earth: 24 30% 32%;
+    --earth-foreground: 0 0% 100%;
+
+    --border: 90 15% 88%;
+    --input: 90 15% 88%;
+    --ring: 152 41% 30%;
+
+    --radius: 0.625rem;
+  }
+
+  .dark {
+    --background: 150 15% 7%;
+    --foreground: 90 15% 95%;
+
+    --card: 150 15% 10%;
+    --card-foreground: 90 15% 95%;
+
+    --popover: 150 15% 10%;
+    --popover-foreground: 90 15% 95%;
+
+    --primary: 147 41% 52%;
+    --primary-foreground: 150 15% 7%;
+    --primary-light: 147 45% 62%;
+
+    --secondary: 150 10% 15%;
+    --secondary-foreground: 90 15% 95%;
+
+    --muted: 150 10% 14%;
+    --muted-foreground: 90 10% 65%;
+
+    --accent: 147 41% 52%;
+    --accent-foreground: 150 15% 7%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --earth: 24 25% 55%;
+    --earth-foreground: 150 15% 7%;
+
+    --border: 150 10% 18%;
+    --input: 150 10% 18%;
+    --ring: 147 41% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
