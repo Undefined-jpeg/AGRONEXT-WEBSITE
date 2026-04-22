@@ -4,7 +4,7 @@ import * as React from "react"
 import { signIn } from "next-auth/react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { registerSchema, type RegisterInput } from "@/lib/validations/auth"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button"
 
 export function RegisterForm() {
   const t = useTranslations("auth.register")
+  const locale = useLocale()
   const [error, setError] = React.useState<string | null>(null)
 
   const {
@@ -34,7 +35,11 @@ export function RegisterForm() {
         if (res.status === 409) {
           setError(t("emailInUse"))
         } else {
-          setError(payload.error?.tr ?? t("error"))
+          setError(
+            locale === "en"
+              ? (payload.error?.en ?? payload.error?.tr ?? t("error"))
+              : (payload.error?.tr ?? payload.error?.en ?? t("error"))
+          )
         }
         return
       }
@@ -48,7 +53,7 @@ export function RegisterForm() {
         setError(t("error"))
         return
       }
-      window.location.href = "/dashboard"
+      window.location.href = `/${locale}/dashboard`
     } catch {
       setError(t("error"))
     }

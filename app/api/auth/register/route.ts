@@ -51,7 +51,51 @@ export async function POST(req: Request) {
     })
 
     return NextResponse.json({ ok: true })
-  } catch {
+  } catch (err) {
+    console.error("[api/auth/register]", err)
+
+    const pgCode =
+      err && typeof err === "object" && "code" in err
+        ? String((err as { code: unknown }).code)
+        : err &&
+            typeof err === "object" &&
+            "cause" in err &&
+            err.cause &&
+            typeof err.cause === "object" &&
+            "code" in err.cause
+          ? String((err.cause as { code: unknown }).code)
+          : undefined
+
+    if (pgCode === "23505") {
+      return NextResponse.json(
+        {
+          error: {
+            tr: "Bu e-posta zaten kullanılıyor.",
+            en: "This email is already in use.",
+          },
+        },
+        { status: 409 }
+      )
+    }
+
+    const msg =
+      err instanceof Error ? err.message.toLowerCase() : String(err).toLowerCase()
+    if (
+      msg.includes("does not exist") ||
+      msg.includes("relation") ||
+      msg.includes("42p01")
+    ) {
+      return NextResponse.json(
+        {
+          error: {
+            tr: "Veritabanı tabloları eksik. Neon’da migration (drizzle) çalıştırın.",
+            en: "Database tables are missing. Run Drizzle migrations against Neon.",
+          },
+        },
+        { status: 503 }
+      )
+    }
+
     return NextResponse.json(
       {
         error: {
