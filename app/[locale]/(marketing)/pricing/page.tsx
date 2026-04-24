@@ -1,31 +1,30 @@
-import { asc } from "drizzle-orm"
 import { setRequestLocale, getTranslations } from "next-intl/server"
-import dynamic from "next/dynamic"
-import { db } from "@/lib/db"
-import { pricingPlans } from "@/lib/db/schema"
 import { PricingCards } from "@/components/pricing/pricing-cards"
 import { ComparisonTable } from "@/components/pricing/comparison-table"
-
-const AIChatDrawer = dynamic(
-  () =>
-    import("@/components/pricing/ai-chat-drawer").then((m) => m.AIChatDrawer),
-  { ssr: false }
-)
-
-export const revalidate = 3600
+import { PricingAIChat } from "@/components/pricing/pricing-ai-chat"
+import { pricingPlans } from "@/lib/data/pricing"
 
 interface PageProps {
   params: { locale: string }
+}
+
+export async function generateMetadata({ params: { locale } }: PageProps) {
+  const t = await getTranslations({ locale, namespace: "seo.pricing" })
+  return {
+    title: t("title"),
+    description: t("description"),
+    openGraph: {
+      title: t("og_title"),
+      description: t("og_description"),
+    },
+  }
 }
 
 export default async function PricingPage({ params: { locale } }: PageProps) {
   setRequestLocale(locale)
   const t = await getTranslations("pricing")
 
-  const plans = await db.query.pricingPlans.findMany({
-    where: (p, { eq }) => eq(p.active, true),
-    orderBy: [asc(pricingPlans.sortOrder)],
-  })
+  const plans = [...pricingPlans].sort((a, b) => a.sortOrder - b.sortOrder)
 
   return (
     <>
@@ -38,11 +37,13 @@ export default async function PricingPage({ params: { locale } }: PageProps) {
         </div>
 
         <PricingCards plans={plans} />
+
+        <div className="max-w-3xl mx-auto mt-16">
+          <PricingAIChat />
+        </div>
       </section>
 
       <ComparisonTable locale={locale} />
-
-      <AIChatDrawer />
     </>
   )
 }

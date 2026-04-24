@@ -153,64 +153,8 @@ async function main() {
     await db.insert(schema.sensorReadings).values(readings.slice(i, i + 200))
   }
 
-  console.log("- Inserting pricing plans")
-  await db.insert(schema.pricingPlans).values([
-    {
-      nameKey: "starter",
-      descriptionKey: "starter",
-      priceMonthly: 0,
-      priceYearly: 0,
-      sortOrder: 1,
-      features: [
-        { tr: "1 sera", en: "1 greenhouse", included: true },
-        { tr: "5 sensör desteği", en: "Up to 5 sensors", included: true },
-        { tr: "Günlük veri özeti", en: "Daily data summary", included: true },
-        { tr: "Topluluk desteği", en: "Community support", included: true },
-        { tr: "AI analiz", en: "AI analysis", included: false },
-      ],
-    },
-    {
-      nameKey: "pro",
-      descriptionKey: "pro",
-      priceMonthly: 499,
-      priceYearly: 4790,
-      highlighted: true,
-      sortOrder: 2,
-      features: [
-        { tr: "5 sera", en: "5 greenhouses", included: true },
-        { tr: "Sınırsız sensör", en: "Unlimited sensors", included: true },
-        {
-          tr: "AI analiz ve öneriler",
-          en: "AI analysis & recommendations",
-          included: true,
-        },
-        { tr: "Mobil uygulama", en: "Mobile app", included: true },
-        { tr: "E-posta desteği", en: "Email support", included: true },
-      ],
-    },
-    {
-      nameKey: "enterprise",
-      descriptionKey: "enterprise",
-      priceMonthly: 1499,
-      priceYearly: 14390,
-      sortOrder: 3,
-      features: [
-        { tr: "Sınırsız sera", en: "Unlimited greenhouses", included: true },
-        {
-          tr: "Özel AI modeli eğitimi",
-          en: "Custom AI model training",
-          included: true,
-        },
-        { tr: "API erişimi", en: "API access", included: true },
-        {
-          tr: "Öncelikli 7/24 destek",
-          en: "Priority 24/7 support",
-          included: true,
-        },
-        { tr: "Özel sözleşme", en: "Custom contract", included: true },
-      ],
-    },
-  ])
+  // Pricing plans are now served from lib/data/pricing.ts (static, DB-free).
+  // The pricingPlans table remains in the schema as dormant for future use.
 
   console.log("- Inserting blog posts")
   await db.insert(schema.blogPosts).values([

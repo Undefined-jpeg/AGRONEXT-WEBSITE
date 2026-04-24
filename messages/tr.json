@@ -56,6 +56,15 @@
       "water_label": "Su Tasarrufu",
       "water_sub": "Ortalama kullanıcı verisi"
     },
+    "partners": {
+      "section_title": "Bilimsel altyapıyla destekleniyor",
+      "coming_soon": "Yakında",
+      "items": {
+        "gtu": "Gebze Teknik Üniversitesi",
+        "teknofest": "TEKNOFEST Girişim Programı",
+        "pilots": "Pilot Seralar"
+      }
+    },
     "problem": {
       "eyebrow": "Türkiye tarımının gerçeği",
       "title_a": "Seracı her yıl",
@@ -122,79 +131,79 @@
         "badge": "%41 Su Tasarrufu"
       }
     },
-    "howItWorks": {
-      "eyebrow": "Süreç",
-      "title": "Nasıl çalışır?",
-      "subtitle": "Dört adımda tam otomatik sera yönetimi. Çiftçi sadece onaylar.",
-      "steps": {
+    "tech": {
+      "eyebrow": "Mimari",
+      "section_title": "Nasıl Çalışır",
+      "section_sub": "Dört katmanlı, modüler sistem mimarisi",
+      "layers": {
         "one": {
-          "title": "Sensörler Toplar",
-          "description": "Saha donanımı her 5 dakikada bir nem, sıcaklık ve toprak verisi toplar, buluta gönderir."
+          "title": "Saha Donanımı",
+          "subtitle": "Edge Katmanı",
+          "description": "ESP32 tabanlı sensör ağı; toprak nemi, sıcaklık, nem, ışık ve CO₂ verilerini ölçer. Güneş paneli ile şebekeye bağımlı değil.",
+          "tags": ["ESP32", "Wi-Fi / GSM", "Güneş Enerjisi"]
         },
         "two": {
-          "title": "AI Tahmin Yapar",
-          "description": "GRU modeli mevcut ve geçmiş verileri işler, sulama ve havalandırma ihtiyacını öngörür."
+          "title": "Yapay Zekâ",
+          "subtitle": "GRU Modeli",
+          "description": "Zaman serisi verilerini işleyen GRU tabanlı derin öğrenme modeli. Eşik sistemlerinin aksine proaktif tahmin üretir.",
+          "tags": ["GRU / Deep Learning", "GTÜ Veri Ortaklığı", "Türkiye İklimine Özel"]
         },
         "three": {
-          "title": "Öneri Gelir",
-          "description": "Çiftçi mobil uygulamaya anlık bildirim alır: 'Sera 2 sulanmalı — tahmini tasarruf: 340 litre.'"
+          "title": "Bulut Altyapısı",
+          "subtitle": "Cloud Layer",
+          "description": "Sensör verileri, AI çıkarımları ve bildirimler açık kaynaklı bulut altyapısında işlenir. Düşük maliyet, yüksek ölçeklenebilirlik.",
+          "tags": ["Açık Kaynak", "Gerçek Zamanlı", "Güvenli"]
         },
         "four": {
-          "title": "Tek Dokunuş",
-          "description": "Çiftçi onaylar. Sera sistemi otomatik aksiyon alır. Müdahale gerekmez."
+          "title": "Kullanıcı Uygulaması",
+          "subtitle": "Mobil & Web",
+          "description": "Çiftçi, mobil ve web arayüzünden serayı uzaktan izler, işlemleri yönetir, kritik eşiklerde anlık bildirim alır.",
+          "tags": ["Mobil Uygulama", "Web Panosu", "Anlık Bildirim"]
         }
       }
     },
-    "why": {
-      "eyebrow": "Değer önerisi",
-      "title_a": "Neden",
-      "title_b": "AgroNext",
-      "title_c": "?",
-      "cards": {
-        "price": {
-          "tag": "Fiyat",
-          "value": "1/10",
-          "title": "Global Rakiplerin Onda Biri",
-          "description": "Netafim, Priva gibi premium sistemlerin kurulum maliyetinin onda birinde. Orta ölçekli seracı için gerçekten erişilebilir."
-        },
-        "academic": {
-          "tag": "Akademik",
-          "value": "GTÜ Ortaklığı",
-          "title": "Türkiye'ye Özel Yapay Zeka",
-          "description": "Gebze Teknik Üniversitesi Ziraat Fakültesi ortaklığıyla Türkiye iklim koşullarına özel eğitilmiş GRU modeli. Yabancı veri değil, yerel gerçek."
-        },
-        "efficiency": {
-          "tag": "Verimlilik",
-          "value": "%40",
-          "title": "Hedeflenen Su Tasarrufu",
-          "description": "Pilot sera testlerinde hedeflenen kaynak verimliliği. İlk ücretli müşterilerle doğrulanacak performans hedefi."
-        }
+    "compare": {
+      "eyebrow": "Rekabet avantajı",
+      "section_title": "Farkımız Ne?",
+      "section_sub": "Global sistemlerle karşılaştırın",
+      "feature_col": "Özellik",
+      "us_badge": "Biz",
+      "ourPrice": "Onda biri",
+      "features": {
+        "price": "Erişilebilir fiyat",
+        "localAI": "Proaktif AI (GRU tabanlı)",
+        "turkeyData": "Türkiye iklimine özel model",
+        "mobile": "Mobil uygulama",
+        "subscription": "Abonelik modeli"
       }
     },
     "roadmap": {
       "eyebrow": "Yol haritası",
-      "title_a": "12 aylık",
-      "title_b": "yolculuk",
+      "title_a": "Ticarileşmeye",
+      "title_b": "giden yol",
+      "status_active": "Devam ediyor",
+      "status_upcoming": "Yakında",
+      "status_future": "Gelecek",
       "quarters": {
         "q1": {
-          "label": "Q1 — 2026",
-          "title": "Prototip & Beta",
-          "items": ["Donanım prototipi", "Beta mobil uygulama", "GRU model v1", "Teknofest başvurusu"]
+          "label": "Q1 2025",
+          "title": "Prototip & AI Modeli",
+          "items": ["Çalışan donanım prototipi", "GRU model ilk eğitim", "Mobil uygulama beta"]
         },
         "q2": {
-          "label": "Q2 — 2026",
-          "title": "Mimari & Test",
-          "items": ["Modüler mimari", "GTÜ ortaklık protokolü", "Saha testleri başlar", "Model iyileştirme"]
+          "label": "Q2 2025",
+          "title": "Pilot Seralar",
+          "items": ["1–2 pilot sera uygulaması", "GTÜ veri ortaklığı protokolü", "Bulut altyapısı ölçekleme"]
         },
         "q3": {
-          "label": "Q3 — 2026",
-          "title": "İlk Pilot Seralar",
-          "items": ["2-3 pilot sera", "Gerçek veri toplanması", "Performans doğrulama", "Yatırımcı tanıtımları"]
+          "label": "Q3–Q4 2025",
+          "title": "Ticarileşme",
+          "items": ["3–5 ücretli müşteri", "Şirketleşme", "TÜBİTAK BiGG başvurusu"]
         },
         "q4": {
-          "label": "Q4 — 2026",
-          "title": "İlk Gelir & Şirket",
-          "items": ["İlk ücretli müşteriler", "Şirketleşme", "Seed round hazırlığı", "Ölçekleme planı"]
+          "label": "2026",
+          "title": "Bölgesel Büyüme",
+          "items": ["Akdeniz kuşağı genişleme", "Tohum yatırım turu", "Ekip genişlemesi"]
         }
       }
     },
@@ -203,7 +212,7 @@
       "title_a": "Seranızı",
       "title_b": "geleceğe taşıyalım",
       "description": "Demo talep edin. Sistemi sizin seranıza uyarlayalım.",
-      "email": "agronextstartup@gmail.com",
+      "email": "agronextstartup@agronext.net",
       "form": {
         "name": "Adınız Soyadınız",
         "namePlaceholder": "Ahmet Yılmaz",
@@ -240,7 +249,8 @@
     "perMonth": "/ay",
     "perYear": "/yıl",
     "free": "Ücretsiz",
-    "cta": "Planı Seç",
+    "contactForPrice": "Fiyat için iletişime geç",
+    "contactForPriceHint": "Size özel teklif hazırlayalım — dakikalar içinde dönüş yapıyoruz.",
     "aiHelper": {
       "title": "Plan seçiminde yardım",
       "subtitle": "AgroNext asistanı size en uygun planı önersin.",
@@ -251,37 +261,24 @@
     },
     "plans": {
       "starter": {
-        "name": "Ücretsiz",
-        "description": "Deneme amaçlı ya da küçük hobi seraları için",
-        "features": {
-          "1": "1 sera",
-          "2": "5 sensör desteği",
-          "3": "Günlük veri özeti",
-          "4": "Topluluk desteği"
-        }
+        "name": "Başlangıç",
+        "description": "1–2 seralı küçük işletmeler için",
+        "tagline": "1–2 seralı küçük işletmeler için"
       },
       "pro": {
         "name": "Pro",
-        "description": "Orta ölçekli profesyonel üreticiler için",
-        "features": {
-          "1": "5 sera",
-          "2": "Sınırsız sensör",
-          "3": "AI analiz ve öneriler",
-          "4": "Mobil uygulama",
-          "5": "E-posta desteği"
-        }
+        "description": "Büyüyen ticari sera işletmeleri için",
+        "tagline": "Büyüyen ticari sera işletmeleri için"
       },
       "enterprise": {
         "name": "Kurumsal",
-        "description": "Büyük işletmeler ve kooperatifler için",
-        "features": {
-          "1": "Sınırsız sera",
-          "2": "Özel AI modeli eğitimi",
-          "3": "API erişimi",
-          "4": "Öncelikli 7/24 destek",
-          "5": "Özel sözleşme"
-        }
+        "description": "Büyük ölçekli sera kompleksleri için",
+        "tagline": "Büyük ölçekli sera kompleksleri için"
       }
+    },
+    "cta": {
+      "demo": "Demo Talep Et",
+      "quote": "Teklif Al"
     },
     "compare": {
       "eyebrow": "Karşılaştırma",
@@ -351,20 +348,34 @@
     "title": "Biz kimiz?",
     "subtitle": "Türk çiftçisinin teknolojiye erişimini kolaylaştırmak için kurulduk.",
     "mission": {
-      "title": "Misyonumuz",
-      "body": "Yapay zeka ve IoT teknolojilerini uygun fiyatla Türk üreticisine ulaştırmak. Her seranın verilerini anlamasını ve bu veriden değer üretmesini sağlamak."
-    },
-    "vision": {
-      "title": "Vizyonumuz",
-      "body": "2030 yılına kadar Türkiye'deki 50.000 seranın dijitalleşmesine öncülük etmek; sürdürülebilir tarımı ulaşılabilir kılmak."
-    },
-    "values": {
-      "title": "Değerlerimiz",
-      "items": {
-        "one": { "title": "Şeffaflık", "description": "Fiyatlandırmada, verilerde ve iletişimde şeffafız." },
-        "two": { "title": "Erişilebilirlik", "description": "Teknoloji her büyüklükteki üretici için erişilebilir olmalı." },
-        "three": { "title": "Sürdürülebilirlik", "description": "Daha az su, daha az ilaç, daha fazla verim." }
+      "title": "Neden AgroNext?",
+      "lead": "Türkiye'deki orta ölçekli sera işletmeleri, Netafim gibi akıllı sera sistemlerinin yüksek maliyeti nedeniyle dijital tarım teknolojilerine erişemiyor.",
+      "problem": {
+        "title": "Sorun",
+        "items": {
+          "one": {
+            "stat": "$200K+",
+            "label": "Kurulum maliyeti — orta ölçekli seracı için erişilemez."
+          },
+          "two": {
+            "stat": "%57",
+            "label": "Yıllık su israfı — önlenebilir ama önlenmiyor."
+          }
+        }
+      },
+      "solution": {
+        "title": "Çözümümüz",
+        "body": "AgroNext; Türkiye iklimine özel eğitilmiş GRU tabanlı yapay zekâ, güneş enerjili sensör ağı ve abonelik modeli ile global rakiplerin onda biri fiyatında, erişilebilir bir akıllı sera sistemi sunar.\n\nEşik tabanlı sistemlerin aksine proaktif tahmin üretir: çiftçi sulama, havalandırma ve gübreleme ihtiyacını önceden görür, kaynak israfı azalır."
       }
+    },
+    "story": {
+      "title": "Hikayemiz",
+      "paragraphs": [
+        "AgroNext, üç lise öğrencisi ve bir akademisyenin ortak fikriyle doğdu. Türk üreticisinin teknolojiye erişimindeki uçurumu yakından gören bu ekip, global rakiplere alternatif, yerel ve erişilebilir bir sistem kurmayı hedefledi.",
+        "Girişim, Gebze Teknik Üniversitesi'nin akademik danışmanlığıyla geliştirilmektedir. Yapay zekâ modelinin Türkiye iklim verisiyle eğitilmesi ve saha testlerinin metodolojisi üniversite ortaklığıyla şekilleniyor.",
+        "Donanımdan yapay zekâya, bulut altyapısından mobil uygulamaya kadar tüm katmanlar ekip içinde, sıfırdan geliştiriliyor. Amaç: Türkiye'deki 50.000'den fazla orta ölçekli seranın dijital dönüşümüne gerçekten ulaşılabilir bir yolla öncülük etmek.",
+        "Bugün MVP aşamasındayız; ilk pilot seralarımıza ve ticarileşmeye doğru ilerliyoruz."
+      ]
     }
   },
   "blog": {
@@ -381,6 +392,15 @@
     "team_title": "Ekibimiz",
     "team_subtitle": "AgroNext'i hayata geçiren ekip.",
     "team_linkedin": "LinkedIn",
+    "advisor_title": "Akademik Danışman",
+    "advisor_badge": "Akademik Danışman",
+    "company": {
+      "title": "Bize Ulaşın",
+      "email_label": "E-posta",
+      "phone_label": "Telefon",
+      "location_label": "Konum",
+      "website_label": "Web sitesi"
+    },
     "form": {
       "name": "Adınız",
       "email": "E-posta",
@@ -535,6 +555,52 @@
     "company": "Şirket",
     "legal": "Yasal",
     "privacy": "Gizlilik",
-    "terms": "Kullanım Koşulları"
+    "terms": "Kullanım Koşulları",
+    "contact_heading": "İletişim",
+    "disclaimer": "Gebze Teknik Üniversitesi akademik danışmanlık desteğiyle geliştirilmektedir."
+  },
+  "seo": {
+    "default": {
+      "title": "AgroNext — Türkiye'nin Akıllı Sera Platformu",
+      "description": "GRU tabanlı yapay zekâ ile sera otomasyonu. Netafim'in onda biri fiyatında, Türkiye iklimine özel.",
+      "og_title": "AgroNext",
+      "og_description": "Türkiye seracıları için erişilebilir akıllı tarım."
+    },
+    "home": {
+      "title": "Türkiye'nin Akıllı Sera Platformu",
+      "description": "Türkiye iklimine özel yapay zekâ ile sera otomasyonu. Erişilebilir fiyat, proaktif kararlar.",
+      "og_title": "AgroNext — Akıllı Sera",
+      "og_description": "GRU tabanlı AI + IoT sensörler + mobil uygulama. Hepsi tek pakette."
+    },
+    "pricing": {
+      "title": "Fiyatlandırma",
+      "description": "Küçük seradan kurumsal ölçeğe: size uygun AgroNext planını seçin.",
+      "og_title": "AgroNext Fiyatlandırma",
+      "og_description": "Başlangıç, Pro ve Kurumsal planlar."
+    },
+    "about": {
+      "title": "Hakkımızda",
+      "description": "AgroNext ekibi, misyonu ve hikayesi.",
+      "og_title": "AgroNext Hakkında",
+      "og_description": "Üç lise öğrencisi ve bir akademisyen. Türkiye seracıları için teknoloji."
+    },
+    "contact": {
+      "title": "İletişim",
+      "description": "AgroNext ile iletişime geçin — demo talebi, teklif ve genel sorular için.",
+      "og_title": "AgroNext İletişim",
+      "og_description": "Bize e-posta, telefon veya form üzerinden ulaşın."
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "description": "AgroNext gizlilik politikası.",
+      "body": "Gizlilik politikamızın detaylı metni yakında yayımlanacaktır. Sorularınız için agronextstartup@agronext.net adresinden bize ulaşabilirsiniz."
+    },
+    "terms": {
+      "title": "Kullanım Koşulları",
+      "description": "AgroNext hizmet kullanım koşulları.",
+      "body": "Kullanım koşullarının detaylı metni yakında yayımlanacaktır. Sorularınız için agronextstartup@agronext.net adresinden bize ulaşabilirsiniz."
+    }
   }
 }

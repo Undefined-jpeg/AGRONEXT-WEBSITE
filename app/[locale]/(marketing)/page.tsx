@@ -7,24 +7,39 @@ import {
   Droplets,
   DollarSign,
   Layers,
-  Radio,
-  Sparkles,
-  Bell,
-  CircleCheck,
+  Activity,
+  Brain,
   Mail,
   Linkedin,
   Twitter,
   Instagram,
+  ChevronRight,
 } from "lucide-react"
-import { setRequestLocale } from "next-intl/server"
+import { setRequestLocale, getTranslations } from "next-intl/server"
 import { useTranslations } from "next-intl"
 import { Link } from "@/lib/i18n/routing"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { FadeInSection } from "@/components/landing/motion-section"
 import { DemoForm } from "@/components/landing/demo-form"
+import { CompetitorTable } from "@/components/landing/competitor-table"
 
 interface PageProps {
   params: { locale: string }
+}
+
+type QuarterStatus = "active" | "upcoming" | "future"
+
+export async function generateMetadata({ params: { locale } }: PageProps) {
+  const t = await getTranslations({ locale, namespace: "seo.home" })
+  return {
+    title: t("title"),
+    description: t("description"),
+    openGraph: {
+      title: t("og_title"),
+      description: t("og_description"),
+    },
+  }
 }
 
 export default function LandingPage({ params: { locale } }: PageProps) {
@@ -108,54 +123,21 @@ export default function LandingPage({ params: { locale } }: PageProps) {
     },
   ]
 
-  const steps = [
-    {
-      icon: Radio,
-      title: t("howItWorks.steps.one.title"),
-      description: t("howItWorks.steps.one.description"),
-    },
-    {
-      icon: Sparkles,
-      title: t("howItWorks.steps.two.title"),
-      description: t("howItWorks.steps.two.description"),
-    },
-    {
-      icon: Bell,
-      title: t("howItWorks.steps.three.title"),
-      description: t("howItWorks.steps.three.description"),
-    },
-    {
-      icon: CircleCheck,
-      title: t("howItWorks.steps.four.title"),
-      description: t("howItWorks.steps.four.description"),
-    },
-  ]
+  const techIcons = [Activity, Brain, Cloud, Smartphone] as const
+  const techLayers = (["one", "two", "three", "four"] as const).map((key, i) => ({
+    key,
+    icon: techIcons[i]!,
+    num: String(i + 1).padStart(2, "0"),
+    title: t(`tech.layers.${key}.title`),
+    subtitle: t(`tech.layers.${key}.subtitle`),
+    description: t(`tech.layers.${key}.description`),
+    tags: t.raw(`tech.layers.${key}.tags`) as string[],
+  }))
 
-  const whyCards = [
-    {
-      tag: t("why.cards.price.tag"),
-      tagTone: "bg-amber-500/10 text-amber-700",
-      value: t("why.cards.price.value"),
-      valueTone: "text-amber-600",
-      title: t("why.cards.price.title"),
-      description: t("why.cards.price.description"),
-    },
-    {
-      tag: t("why.cards.academic.tag"),
-      tagTone: "bg-indigo-500/10 text-indigo-700",
-      value: t("why.cards.academic.value"),
-      valueTone: "text-indigo-600",
-      title: t("why.cards.academic.title"),
-      description: t("why.cards.academic.description"),
-    },
-    {
-      tag: t("why.cards.efficiency.tag"),
-      tagTone: "bg-primary/10 text-primary",
-      value: t("why.cards.efficiency.value"),
-      valueTone: "text-primary",
-      title: t("why.cards.efficiency.title"),
-      description: t("why.cards.efficiency.description"),
-    },
+  const partnerItems: Array<{ key: string; label: string; soon?: boolean }> = [
+    { key: "gtu", label: t("partners.items.gtu") },
+    { key: "teknofest", label: t("partners.items.teknofest"), soon: true },
+    { key: "pilots", label: t("partners.items.pilots"), soon: true },
   ]
 
   const quarters = (["q1", "q2", "q3", "q4"] as const).map((q, i) => ({
@@ -163,7 +145,13 @@ export default function LandingPage({ params: { locale } }: PageProps) {
     label: t(`roadmap.quarters.${q}.label`),
     title: t(`roadmap.quarters.${q}.title`),
     items: t.raw(`roadmap.quarters.${q}.items`) as string[],
-    state: i === 0 ? "done" : i === 1 ? "active" : "upcoming",
+    status: (i === 0 ? "active" : i < 3 ? "upcoming" : "future") as QuarterStatus,
+    statusLabel: t(
+      `roadmap.status_${i === 0 ? "active" : i < 3 ? "upcoming" : "future"}` as
+        | "roadmap.status_active"
+        | "roadmap.status_upcoming"
+        | "roadmap.status_future"
+    ),
   }))
 
   return (
@@ -263,8 +251,37 @@ export default function LandingPage({ params: { locale } }: PageProps) {
         </div>
       </section>
 
+      {/* Partnership / trust band */}
+      <section className="relative bg-background">
+        <div className="container py-14 md:py-16">
+          <FadeInSection className="text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              {t("partners.section_title")}
+            </p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+              {partnerItems.map((p) => (
+                <div
+                  key={p.key}
+                  className="flex items-center gap-2 text-sm font-medium text-muted-foreground/80 grayscale"
+                >
+                  <span>{p.label}</span>
+                  {p.soon ? (
+                    <Badge
+                      variant="secondary"
+                      className="h-5 px-1.5 text-[10px] uppercase tracking-wide"
+                    >
+                      {t("partners.coming_soon")}
+                    </Badge>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          </FadeInSection>
+        </div>
+      </section>
+
       {/* Problem */}
-      <section className="relative mt-24 bg-background md:mt-32">
+      <section className="relative bg-background">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-[0.06]"
@@ -493,7 +510,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
         </div>
       </section>
 
-      {/* How it works */}
+      {/* How it works — 4-layer tech architecture */}
       <section
         id="how-it-works"
         className="relative scroll-mt-24 bg-secondary/40"
@@ -501,93 +518,84 @@ export default function LandingPage({ params: { locale } }: PageProps) {
         <div className="container relative py-20 md:py-28">
           <FadeInSection className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              {t("howItWorks.eyebrow")}
+              {t("tech.eyebrow")}
             </p>
             <h2 className="mt-4 text-4xl font-black tracking-tight text-foreground md:text-5xl">
-              {t("howItWorks.title")}
+              {t("tech.section_title")}
             </h2>
             <p className="mt-4 text-sm text-muted-foreground md:text-base">
-              {t("howItWorks.subtitle")}
+              {t("tech.section_sub")}
             </p>
           </FadeInSection>
 
-          <div className="relative mt-16">
-            <div
-              aria-hidden
-              className="absolute left-0 right-0 top-6 hidden h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent md:block"
-            />
-            <div className="grid gap-10 md:grid-cols-4">
-              {steps.map((step, i) => {
-                const Icon = step.icon
-                return (
-                  <FadeInSection key={step.title} delay={i * 0.08}>
-                    <div className="relative flex flex-col items-center text-center">
-                      <div className="relative">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-border bg-card shadow-sm">
-                          <Icon
-                            className="h-5 w-5 text-primary"
-                            strokeWidth={1.5}
-                          />
-                        </div>
-                        <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground shadow">
-                          {i + 1}
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {techLayers.map((layer, i) => {
+              const Icon = layer.icon
+              return (
+                <FadeInSection key={layer.key} delay={i * 0.08}>
+                  <div className="relative h-full">
+                    <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md">
+                      <div className="flex items-center justify-between">
+                        <span className="font-mono text-xs font-semibold tracking-wider text-muted-foreground">
+                          {layer.num}
                         </span>
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                          <Icon className="h-5 w-5" strokeWidth={1.5} />
+                        </div>
                       </div>
-                      <h3 className="mt-6 text-base font-semibold text-foreground">
-                        {step.title}
+                      <h3 className="mt-5 text-lg font-semibold text-foreground">
+                        {layer.title}
                       </h3>
-                      <p className="mt-2 max-w-[14rem] text-xs text-muted-foreground md:text-sm">
-                        {step.description}
+                      <p className="mt-1 text-xs font-medium uppercase tracking-wide text-primary">
+                        {layer.subtitle}
                       </p>
+                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                        {layer.description}
+                      </p>
+                      <div className="mt-5 flex flex-wrap gap-1.5">
+                        {layer.tags.map((tag) => (
+                          <Badge
+                            key={tag}
+                            variant="secondary"
+                            className="text-[10px] uppercase tracking-wide"
+                          >
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
                     </div>
-                  </FadeInSection>
-                )
-              })}
-            </div>
+                    {i < techLayers.length - 1 ? (
+                      <ChevronRight
+                        aria-hidden
+                        className="absolute -right-4 top-1/2 hidden h-6 w-6 -translate-y-1/2 text-muted-foreground/40 lg:block"
+                      />
+                    ) : null}
+                  </div>
+                </FadeInSection>
+              )
+            })}
           </div>
         </div>
       </section>
 
-      {/* Why AgroNext */}
+      {/* Competitor comparison */}
       <section className="relative bg-background">
         <div className="container relative py-20 md:py-28">
           <FadeInSection className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              {t("why.eyebrow")}
+              {t("compare.eyebrow")}
             </p>
             <h2 className="mt-4 text-4xl font-black tracking-tight text-foreground md:text-5xl">
-              {t("why.title_a")}{" "}
-              <span className="font-serif italic font-normal text-accent2">
-                {t("why.title_b")}
-              </span>
-              {t("why.title_c")}
+              {t("compare.section_title")}
             </h2>
+            <p className="mt-4 text-sm text-muted-foreground md:text-base">
+              {t("compare.section_sub")}
+            </p>
           </FadeInSection>
 
-          <div className="mt-14 grid gap-4 md:grid-cols-3">
-            {whyCards.map((c, i) => (
-              <FadeInSection key={c.title} delay={i * 0.08}>
-                <div className="h-full rounded-2xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md md:p-8">
-                  <span
-                    className={`inline-flex rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wider ${c.tagTone}`}
-                  >
-                    {c.tag}
-                  </span>
-                  <div
-                    className={`mt-6 text-4xl font-black tracking-tight md:text-5xl ${c.valueTone}`}
-                  >
-                    {c.value}
-                  </div>
-                  <h3 className="mt-4 text-base font-semibold text-foreground md:text-lg">
-                    {c.title}
-                  </h3>
-                  <p className="mt-3 text-xs leading-relaxed text-muted-foreground md:text-sm">
-                    {c.description}
-                  </p>
-                </div>
-              </FadeInSection>
-            ))}
-          </div>
+          <FadeInSection delay={0.1} className="mt-12">
+            <CompetitorTable />
+          </FadeInSection>
         </div>
       </section>
 
@@ -614,8 +622,8 @@ export default function LandingPage({ params: { locale } }: PageProps) {
               />
               <div
                 aria-hidden
-                className="absolute left-0 top-2 h-px bg-gradient-to-r from-primary to-amber-500"
-                style={{ width: "40%" }}
+                className="absolute left-0 top-2 h-px bg-gradient-to-r from-primary to-primary/0"
+                style={{ width: "25%" }}
               />
               <div className="grid gap-10 md:grid-cols-4">
                 {quarters.map((q) => (
@@ -623,20 +631,42 @@ export default function LandingPage({ params: { locale } }: PageProps) {
                     <span
                       aria-hidden
                       className={`absolute left-0 top-0 h-4 w-4 rounded-full border-2 ${
-                        q.state === "done"
-                          ? "border-primary bg-primary shadow-[0_0_14px_hsl(var(--primary)/0.6)]"
-                          : q.state === "active"
-                            ? "border-amber-500 bg-amber-500"
-                            : "border-border bg-background"
+                        q.status === "active"
+                          ? "border-primary bg-primary shadow-[0_0_14px_hsl(var(--primary)/0.6)] animate-pulse"
+                          : q.status === "upcoming"
+                            ? "border-primary/50 bg-background"
+                            : "border-border bg-muted"
                       }`}
                     />
-                    <div className="text-[10px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
-                      {q.label}
+                    <div className="flex items-center gap-2">
+                      <div className="text-[10px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+                        {q.label}
+                      </div>
+                      <Badge
+                        variant={q.status === "active" ? "default" : "secondary"}
+                        className={`h-4 px-1.5 text-[9px] uppercase tracking-wide ${
+                          q.status === "future" ? "opacity-60" : ""
+                        }`}
+                      >
+                        {q.statusLabel}
+                      </Badge>
                     </div>
-                    <div className="mt-2 text-base font-semibold text-foreground">
+                    <div
+                      className={`mt-2 text-base font-semibold ${
+                        q.status === "future"
+                          ? "text-muted-foreground"
+                          : "text-foreground"
+                      }`}
+                    >
                       {q.title}
                     </div>
-                    <ul className="mt-3 space-y-1.5 text-xs text-muted-foreground md:text-sm">
+                    <ul
+                      className={`mt-3 space-y-1.5 text-xs md:text-sm ${
+                        q.status === "future"
+                          ? "text-muted-foreground/60"
+                          : "text-muted-foreground"
+                      }`}
+                    >
                       {q.items.map((it) => (
                         <li key={it}>→ {it}</li>
                       ))}

@@ -4,13 +4,12 @@ import * as React from "react"
 import { Sparkles, Send } from "lucide-react"
 import { useTranslations } from "next-intl"
 import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerDescription,
-  DrawerTrigger,
-} from "@/components/ui/drawer"
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
@@ -20,7 +19,7 @@ interface Message {
   content: string
 }
 
-export function AIChatDrawer() {
+export function PricingAIChat() {
   const t = useTranslations("pricing.aiHelper")
   const [messages, setMessages] = React.useState<Message[]>([])
   const [input, setInput] = React.useState("")
@@ -76,26 +75,20 @@ export function AIChatDrawer() {
   }, [messages])
 
   return (
-    <Drawer>
-      <DrawerTrigger asChild>
-        <Button
-          size="lg"
-          className="fixed bottom-6 right-6 z-40 rounded-full shadow-lg h-14 px-5"
-        >
-          <Sparkles className="h-5 w-5" />
-          <span className="hidden sm:inline">{t("open")}</span>
-        </Button>
-      </DrawerTrigger>
-      <DrawerContent side="right" className="flex flex-col">
-        <DrawerHeader>
-          <DrawerTitle className="flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-primary" />
-            {t("title")}
-          </DrawerTitle>
-          <DrawerDescription>{t("subtitle")}</DrawerDescription>
-        </DrawerHeader>
+    <Card className="overflow-hidden">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <Sparkles className="h-4 w-4 text-primary" />
+          {t("title")}
+        </CardTitle>
+        <CardDescription>{t("subtitle")}</CardDescription>
+      </CardHeader>
 
-        <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-4">
+      <CardContent className="flex flex-col gap-4">
+        <div
+          ref={scrollRef}
+          className="h-80 overflow-y-auto rounded-md border bg-muted/30 p-4 space-y-3"
+        >
           {messages.length === 0 ? (
             <div className="text-center text-sm text-muted-foreground py-12">
               {t("dormantMessage")}
@@ -113,8 +106,8 @@ export function AIChatDrawer() {
                 <div
                   className={
                     msg.role === "user"
-                      ? "bg-primary text-primary-foreground rounded-2xl rounded-br-sm px-4 py-2 text-sm max-w-[80%]"
-                      : "bg-muted text-foreground rounded-2xl rounded-bl-sm px-4 py-2 text-sm max-w-[80%]"
+                      ? "bg-primary text-primary-foreground rounded-2xl rounded-br-sm px-4 py-2 text-sm max-w-[80%] whitespace-pre-wrap"
+                      : "bg-background border text-foreground rounded-2xl rounded-bl-sm px-4 py-2 text-sm max-w-[80%] whitespace-pre-wrap"
                   }
                 >
                   {msg.content}
@@ -124,12 +117,14 @@ export function AIChatDrawer() {
           )}
           {pending ? (
             <div className="flex justify-start">
-              <div className="bg-muted rounded-2xl px-4 py-2 text-sm">...</div>
+              <div className="bg-background border rounded-2xl px-4 py-2 text-sm">
+                ...
+              </div>
             </div>
           ) : null}
         </div>
 
-        <form onSubmit={handleSubmit} className="border-t p-4 flex gap-2">
+        <form onSubmit={handleSubmit} className="flex gap-2">
           <Input
             value={input}
             onChange={(e) => setInput(e.target.value)}
@@ -141,7 +136,7 @@ export function AIChatDrawer() {
             <span className="sr-only">{t("send")}</span>
           </Button>
         </form>
-      </DrawerContent>
-    </Drawer>
+      </CardContent>
+    </Card>
   )
 }

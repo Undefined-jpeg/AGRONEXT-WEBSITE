@@ -1,28 +1,68 @@
 import { cn } from "@/lib/utils"
 
-export function Logo({ className }: { className?: string }) {
+interface LogoProps {
+  className?: string
+  showWordmark?: boolean
+}
+
+export function Logo({ className, showWordmark = true }: LogoProps) {
   return (
     <div className={cn("flex items-center gap-2", className)}>
-      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-          className="h-5 w-5"
-        >
-          <path
-            d="M12 3C12 3 6 9 6 13.5C6 17.0899 8.91015 20 12 20C15.0899 20 18 17.0899 18 13.5C18 9 12 3 12 3Z"
-            fill="currentColor"
-          />
-          <path
-            d="M12 20V13M12 13L9 16M12 13L15 16"
-            stroke="hsl(var(--primary))"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-        </svg>
-      </div>
-      <span className="font-semibold tracking-tight text-lg">AgroNext</span>
+      <LogoMark className="h-8 w-8" />
+      {showWordmark ? (
+        <span className="font-extrabold tracking-tight text-lg">
+          Agro<span className="text-primary">Next</span>
+        </span>
+      ) : null}
     </div>
+  )
+}
+
+export function LogoMark({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 40 40"
+      fill="none"
+      aria-hidden="true"
+      className={cn("h-8 w-8", className)}
+    >
+      <rect width="40" height="40" rx="10" className="fill-primary" />
+      <path
+        d="M20 30 C20 30 10 24 10 16 C10 11 14.5 8 20 8 C25.5 8 30 11 30 16 C30 24 20 30 20 30Z"
+        fill="none"
+        stroke="white"
+        strokeWidth="1.5"
+      />
+      <line
+        x1="20"
+        y1="30"
+        x2="20"
+        y2="14"
+        stroke="white"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <line
+        x1="20"
+        y1="20"
+        x2="15"
+        y2="16"
+        stroke="white"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+      <line
+        x1="20"
+        y1="17"
+        x2="25"
+        y2="13.5"
+        stroke="white"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+      <circle cx="20" cy="14" r="1.5" fill="white" />
+      <circle cx="15" cy="16" r="1.2" fill="white" opacity="0.7" />
+      <circle cx="25" cy="13.5" r="1.2" fill="white" opacity="0.7" />
+    </svg>
   )
 }

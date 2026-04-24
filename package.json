@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^1.0.0",
+    "@ai-sdk/google": "^1.2.22",
     "@auth/drizzle-adapter": "^1.7.2",
     "@hookform/resolvers": "^3.9.0",
     "@neondatabase/serverless": "^0.10.3",

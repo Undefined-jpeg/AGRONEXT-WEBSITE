@@ -18,12 +18,34 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: {
-    default: "AgroNext — Akıllı Sera Yönetim Sistemi",
+    default: "AgroNext — Türkiye'nin Akıllı Sera Platformu",
     template: "%s · AgroNext",
   },
   description:
-    "AgroNext küçük ve orta ölçekli sera çiftçileri için yapay zeka destekli akıllı sera yönetim sistemi.",
+    "GRU tabanlı yapay zekâ ile sera otomasyonu. Netafim'in onda biri fiyatında, Türkiye iklimine özel.",
+  keywords: [
+    "akıllı sera",
+    "sera otomasyonu",
+    "agritech",
+    "yapay zeka tarım",
+    "smart greenhouse",
+    "Turkey agtech",
+    "AgroNext",
+  ],
   metadataBase: new URL(process.env.AUTH_URL ?? "http://localhost:3000"),
+  openGraph: {
+    title: "AgroNext",
+    description: "Türkiye seracıları için erişilebilir akıllı tarım.",
+    url: "https://agronext.net",
+    siteName: "AgroNext",
+    locale: "tr_TR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AgroNext",
+    description: "Akıllı sera, erişilebilir fiyat.",
+  },
 }
 
 export default function RootLayout({
