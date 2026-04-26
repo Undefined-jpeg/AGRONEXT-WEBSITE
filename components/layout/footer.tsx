@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from "lucide-react"
+import { Mail, Phone, MapPin, Linkedin } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { Link } from "@/lib/i18n/routing"
 import { Logo } from "./logo"
@@ -17,6 +17,17 @@ export function Footer() {
             <p className="text-sm text-muted-foreground max-w-xs">
               {t("common.tagline")}
             </p>
+            <div className="flex gap-2">
+              <a
+                href={companyInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-background text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+            </div>
           </div>
 
           <div>

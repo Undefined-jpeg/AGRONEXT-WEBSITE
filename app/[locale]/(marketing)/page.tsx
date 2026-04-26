@@ -10,6 +10,7 @@ import {
   Activity,
   Brain,
   Mail,
+  Linkedin,
   Twitter,
   Instagram,
   ChevronRight,
@@ -23,6 +24,7 @@ import { FadeInSection } from "@/components/landing/motion-section"
 import { DemoForm } from "@/components/landing/demo-form"
 import { CompetitorTable } from "@/components/landing/competitor-table"
 import { StatsPanel } from "@/components/landing/stats-panel"
+import { companyInfo } from "@/lib/data/company"
 
 interface PageProps {
   params: { locale: string }
@@ -758,6 +760,11 @@ export default function LandingPage({ params: { locale } }: PageProps) {
 
                 <div className="mt-8 flex gap-2">
                   {[
+                    {
+                      href: companyInfo.linkedin,
+                      Icon: Linkedin,
+                      label: "LinkedIn",
+                    },
                     { href: "https://x.com", Icon: Twitter, label: "X" },
                     {
                       href: "https://instagram.com",

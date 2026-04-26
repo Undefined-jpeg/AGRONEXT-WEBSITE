@@ -8,5 +8,6 @@ export const companyInfo = {
   location: "Gebze, Kocaeli, Türkiye",
   locationMapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Gebze+Kocaeli+T%C3%BCrkiye",
+  linkedin: "https://www.linkedin.com/company/agronextai/",
   stage: "MVP — Kavram Doğrulama",
 } as const
