@@ -23,6 +23,8 @@ import { Badge } from "@/components/ui/badge"
 import { FadeInSection } from "@/components/landing/motion-section"
 import { DemoForm } from "@/components/landing/demo-form"
 import { CompetitorTable } from "@/components/landing/competitor-table"
+import { StatsPanel } from "@/components/landing/stats-panel"
+import { companyInfo } from "@/lib/data/company"
 
 interface PageProps {
   params: { locale: string }
@@ -48,16 +50,19 @@ export default function LandingPage({ params: { locale } }: PageProps) {
 
   const stats = [
     {
+      key: "accuracy" as const,
       value: t("stats.accuracy_value"),
       label: t("stats.accuracy_label"),
       sub: t("stats.accuracy_sub"),
     },
     {
+      key: "speed" as const,
       value: t("stats.speed_value"),
       label: t("stats.speed_label"),
       sub: t("stats.speed_sub"),
     },
     {
+      key: "water" as const,
       value: t("stats.water_value"),
       label: t("stats.water_label"),
       sub: t("stats.water_sub"),
@@ -225,53 +230,62 @@ export default function LandingPage({ params: { locale } }: PageProps) {
         </div>
       </section>
 
-      {/* Stats band */}
-      <section className="relative -mt-24 md:-mt-32">
-        <div className="container">
-          <div className="mx-auto max-w-5xl rounded-2xl border border-border bg-card/95 shadow-xl backdrop-blur">
-            <div className="grid grid-cols-1 divide-y divide-border sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-              {stats.map((s) => (
-                <div
-                  key={s.label}
-                  className="flex flex-col items-center px-6 py-8 text-center"
-                >
-                  <div className="text-3xl font-bold tracking-tight text-primary md:text-4xl">
-                    {s.value}
-                  </div>
-                  <div className="mt-2 text-sm font-semibold text-foreground">
-                    {s.label}
-                  </div>
-                  <div className="mt-1 text-xs text-muted-foreground">
-                    {s.sub}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Stats + partners — premium grouped band */}
+      <section className="relative -mt-24 border-b border-border/40 bg-[#F4F6F2] dark:bg-background md:-mt-32">
+        {/* subtle grid only within this band */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(45,106,79,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(45,106,79,0.8) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+            maskImage:
+              "linear-gradient(to bottom, transparent 0%, black 25%, black 80%, transparent 100%)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, transparent 0%, black 25%, black 80%, transparent 100%)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent dark:from-background"
+        />
 
-      {/* Partnership / trust band */}
-      <section className="relative bg-background">
-        <div className="container py-14 md:py-16">
-          <FadeInSection className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+        <div className="container relative py-10 pb-14 md:py-12 md:pb-16">
+          <FadeInSection>
+            <StatsPanel stats={stats} />
+          </FadeInSection>
+
+          <FadeInSection delay={0.1} className="mt-12 text-center md:mt-14">
+            <div className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground/80">
+              <span aria-hidden className="h-px w-8 bg-border" />
               {t("partners.section_title")}
-            </p>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+              <span aria-hidden className="h-px w-8 bg-border" />
+            </div>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5 md:gap-3">
               {partnerItems.map((p) => (
                 <div
                   key={p.key}
-                  className="flex items-center gap-2 text-sm font-medium text-muted-foreground/80 grayscale"
+                  className="group inline-flex items-center gap-2 rounded-full border border-border bg-white/80 px-3.5 py-1.5 text-sm font-medium text-foreground/80 shadow-sm backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:bg-white hover:shadow-md dark:bg-card/80 dark:hover:bg-card"
                 >
+                  <span
+                    aria-hidden
+                    className="relative flex h-1.5 w-1.5 items-center justify-center"
+                  >
+                    {!p.soon ? (
+                      <>
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
+                        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
+                      </>
+                    ) : (
+                      <span className="inline-flex h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
+                    )}
+                  </span>
                   <span>{p.label}</span>
                   {p.soon ? (
-                    <Badge
-                      variant="secondary"
-                      className="h-5 px-1.5 text-[10px] uppercase tracking-wide"
-                    >
+                    <span className="inline-flex items-center rounded-full bg-zinc-900 px-1.5 py-0.5 text-[9px] font-bold uppercase leading-none tracking-wider text-white dark:bg-zinc-100 dark:text-zinc-900">
                       {t("partners.coming_soon")}
-                    </Badge>
+                    </span>
                   ) : null}
                 </div>
               ))}
@@ -747,7 +761,7 @@ export default function LandingPage({ params: { locale } }: PageProps) {
                 <div className="mt-8 flex gap-2">
                   {[
                     {
-                      href: "https://linkedin.com",
+                      href: companyInfo.linkedin,
                       Icon: Linkedin,
                       label: "LinkedIn",
                     },

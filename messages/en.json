@@ -46,15 +46,19 @@
       "cta_how": "How It Works"
     },
     "stats": {
+      "live_badge": "Live Data",
       "accuracy_value": "99%",
       "accuracy_label": "Sensor Accuracy",
       "accuracy_sub": "Calibrated GRU model",
+      "accuracy_delta": "On target",
       "speed_value": "<2s",
       "speed_label": "Data Refresh Rate",
       "speed_sub": "Real-time sensor reads",
+      "speed_delta": "Realtime",
       "water_value": "30%",
       "water_label": "Water Savings",
-      "water_sub": "Average user data"
+      "water_sub": "Average user data",
+      "water_delta": "Avg. pilot"
     },
     "partners": {
       "section_title": "Backed by scientific foundations",

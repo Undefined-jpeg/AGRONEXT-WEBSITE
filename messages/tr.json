@@ -46,15 +46,19 @@
       "cta_how": "Nasıl Çalışır"
     },
     "stats": {
+      "live_badge": "Canlı Veri",
       "accuracy_value": "%99",
       "accuracy_label": "Sensör Doğruluğu",
       "accuracy_sub": "Kalibre edilmiş GRU modeli",
+      "accuracy_delta": "Hedefte",
       "speed_value": "<2sn",
       "speed_label": "Veri Güncelleme Hızı",
       "speed_sub": "Gerçek zamanlı sensör okuma",
+      "speed_delta": "Gerçek zamanlı",
       "water_value": "%30",
       "water_label": "Su Tasarrufu",
-      "water_sub": "Ortalama kullanıcı verisi"
+      "water_sub": "Ortalama kullanıcı verisi",
+      "water_delta": "Ort. pilot"
     },
     "partners": {
       "section_title": "Bilimsel altyapıyla destekleniyor",

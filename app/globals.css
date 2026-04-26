@@ -101,4 +101,69 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Rotating conic gradient border for premium stat panel */
+  @property --agn-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  .stats-panel {
+    position: relative;
+  }
+  .stats-panel::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: conic-gradient(
+      from var(--agn-angle, 0deg),
+      hsl(var(--primary) / 0.55) 0deg,
+      hsl(var(--primary) / 0.05) 90deg,
+      hsl(var(--primary-light) / 0.55) 180deg,
+      hsl(var(--primary) / 0.05) 270deg,
+      hsl(var(--primary) / 0.55) 360deg
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    animation: agn-spin 8s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes agn-spin {
+    to {
+      --agn-angle: 360deg;
+    }
+  }
+
+  /* Fallback: plain browsers without @property still get a soft static border */
+  @supports not (background: conic-gradient(from 0deg, red, blue)) {
+    .stats-panel::before {
+      background: linear-gradient(
+        135deg,
+        hsl(var(--primary) / 0.4),
+        hsl(var(--primary-light) / 0.4)
+      );
+      animation: none;
+    }
+  }
+
+  .agn-spark {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: agn-draw 2.4s ease-out forwards;
+  }
+  @keyframes agn-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
 }

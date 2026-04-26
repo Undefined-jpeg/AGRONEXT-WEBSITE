@@ -20,7 +20,8 @@ export const teamMembers: TeamMember[] = [
     title: "Kurucu & CEO",
     description:
       "Girişimin stratejik yönü, pazar araştırması, rekabet analizi ve dış ilişkilerden sorumlu.",
-    linkedinUrl: "https://www.linkedin.com/",
+    linkedinUrl:
+      "https://www.linkedin.com/in/tuna-özkan-yapıcı-1b071a340",
     avatarInitials: "TÖ",
     avatarImage: null,
   },
@@ -29,7 +30,7 @@ export const teamMembers: TeamMember[] = [
     title: "Kurucu & CTO",
     description:
       "GRU tabanlı yapay zekâ modelinin geliştirilmesi, bulut altyapısı ve mobil/web uygulamalarından sorumlu.",
-    linkedinUrl: "https://www.linkedin.com/",
+    linkedinUrl: null,
     avatarInitials: "YA",
     avatarImage: null,
   },
@@ -38,7 +39,7 @@ export const teamMembers: TeamMember[] = [
     title: "Kurucu & Donanım Lideri",
     description:
       "Sensör altyapısı, ESP32 programlama, güneş enerjisi entegrasyonu ve saha donanım tasarımından sorumlu.",
-    linkedinUrl: "https://www.linkedin.com/",
+    linkedinUrl: null,
     avatarInitials: "AK",
     avatarImage: null,
   },
