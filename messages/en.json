@@ -119,6 +119,7 @@
           "detail": "AI alerts, scenario-based automation and one-tap action buttons."
         }
       },
+      "live_pill": "Live",
       "phone": {
         "greeting": "Hello,",
         "user": "Mr. Ahmet",
@@ -132,7 +133,38 @@
         "model": "GRU Model",
         "accuracyLabel": "Prediction Accuracy",
         "cta": "Start Irrigation",
-        "badge": "41% Water Saved"
+        "badge": "41% Water Saved",
+        "hardware": {
+          "title": "Field Hardware",
+          "subtitle": "Live Sensor Map",
+          "sensorsLabel": "Active Sensors",
+          "sensors": [
+            { "name": "Greenhouse 1 · North", "status": "v3.2 · 4h" },
+            { "name": "Greenhouse 2 · Center", "status": "v3.2 · 4h" },
+            { "name": "Greenhouse 3 · South", "status": "v3.2 · 4h" }
+          ],
+          "batteryLabel": "Battery",
+          "radioLabel": "LoRa 868",
+          "solarLabel": "Solar"
+        },
+        "ai": {
+          "title": "Artificial Intelligence",
+          "subtitle": "GRU-based Prediction",
+          "layersLabel": "Architecture",
+          "epochsLabel": "Epoch",
+          "accuracyLabel": "Accuracy",
+          "confusionLabel": "Confusion Matrix (%)"
+        },
+        "cloud": {
+          "title": "Cloud",
+          "subtitle": "Real-time Data Flow",
+          "sourcesLabel": "Sources → API → DB",
+          "sources": ["GH 1", "GH 2", "GH 3"],
+          "endpoint": "/api/iot/ingest",
+          "latencyLabel": "p95 Latency",
+          "dbLabel": "Database",
+          "uptimeLabel": "Uptime"
+        }
       }
     },
     "tech": {

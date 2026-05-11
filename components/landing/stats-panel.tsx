@@ -1,3 +1,6 @@
+ "use client"
+
+import * as React from "react"
 import { Target, Zap, Droplets, TrendingUp } from "lucide-react"
 import { useTranslations } from "next-intl"
 
@@ -23,11 +26,97 @@ const sparkPaths: Record<Stat["key"], string> = {
   water: "M2 12 Q9 4 16 12 T30 12 T44 12 T58 12",
 }
 
+type ParsedValue = {
+  token: string
+  target: number
+  decimals: number
+  separator: "." | ","
+}
+
+function parseValue(raw: string): ParsedValue | null {
+  const match = raw.match(/-?\d+(?:[.,]\d+)?/)
+  if (!match) return null
+
+  const token = match[0]
+  const separator: "." | "," = token.includes(",") ? "," : "."
+  const decimals = token.includes(".") || token.includes(",")
+    ? token.split(/[.,]/)[1]?.length ?? 0
+    : 0
+  const target = Number(token.replace(",", "."))
+
+  if (!Number.isFinite(target)) return null
+
+  return { token, target, decimals, separator }
+}
+
+function formatValue(value: number, decimals: number, separator: "." | ",") {
+  const fixed = value.toFixed(decimals)
+  return separator === "," ? fixed.replace(".", ",") : fixed
+}
+
+function AnimatedStatValue({
+  value,
+  delayMs,
+}: {
+  value: string
+  delayMs: number
+}) {
+  const [display, setDisplay] = React.useState(value)
+
+  React.useEffect(() => {
+    const parsed = parseValue(value)
+    if (!parsed) {
+      setDisplay(value)
+      return
+    }
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches
+    if (reduceMotion) {
+      setDisplay(value)
+      return
+    }
+
+    let raf = 0
+    let start = 0
+    let timeoutId = 0
+    const duration = 1400
+
+    const tick = (ts: number) => {
+      if (!start) start = ts
+      const progress = Math.min((ts - start) / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      const current = parsed.target * eased
+      const animated = value.replace(
+        parsed.token,
+        formatValue(current, parsed.decimals, parsed.separator)
+      )
+      setDisplay(animated)
+
+      if (progress < 1) {
+        raf = window.requestAnimationFrame(tick)
+      }
+    }
+
+    timeoutId = window.setTimeout(() => {
+      raf = window.requestAnimationFrame(tick)
+    }, delayMs)
+
+    return () => {
+      window.clearTimeout(timeoutId)
+      window.cancelAnimationFrame(raf)
+    }
+  }, [delayMs, value])
+
+  return <>{display}</>
+}
+
 export function StatsPanel({ stats }: { stats: Stat[] }) {
   const t = useTranslations("landing.stats")
 
   return (
-    <div className="relative mx-auto max-w-5xl">
+    <div className="relative mx-auto w-full max-w-[76rem]">
       {/* soft colored glow behind card */}
       <div
         aria-hidden
@@ -66,10 +155,11 @@ export function StatsPanel({ stats }: { stats: Stat[] }) {
               return (
                 <div
                   key={s.key}
-                  className="group relative px-6 pt-12 pb-8 sm:px-7"
+                  className="agn-stat-item agn-stat-card group relative overflow-hidden px-6 pt-12 pb-8 sm:px-7"
+                  style={{ ["--agn-delay" as string]: `${i * 120}ms` }}
                 >
                   {/* top row: icon + sparkline */}
-                  <div className="mb-6 flex items-center justify-between">
+                  <div className="relative z-[1] mb-6 flex items-center justify-between">
                     <div className="relative">
                       <div
                         aria-hidden
@@ -80,50 +170,62 @@ export function StatsPanel({ stats }: { stats: Stat[] }) {
                       </div>
                     </div>
 
-                    <svg
-                      viewBox="0 0 60 24"
-                      width="68"
-                      height="26"
-                      aria-hidden
-                      className="text-primary/70"
-                    >
-                      <defs>
-                        <linearGradient
-                          id={`spark-${s.key}`}
-                          x1="0"
-                          x2="1"
-                          y1="0"
-                          y2="0"
-                        >
-                          <stop
-                            offset="0%"
-                            stopColor="currentColor"
-                            stopOpacity="0.15"
-                          />
-                          <stop
-                            offset="100%"
-                            stopColor="currentColor"
-                            stopOpacity="1"
-                          />
-                        </linearGradient>
-                      </defs>
-                      <path
-                        d={sparkPaths[s.key]}
-                        fill="none"
-                        stroke={`url(#spark-${s.key})`}
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="agn-spark"
-                        style={{ animationDelay: `${i * 120}ms` }}
-                      />
-                    </svg>
+                    <div className="relative">
+                      <svg
+                        viewBox="0 0 60 24"
+                        width="96"
+                        height="36"
+                        aria-hidden
+                        className="text-primary/70"
+                      >
+                        <defs>
+                          <linearGradient
+                            id={`spark-${s.key}`}
+                            x1="0"
+                            x2="1"
+                            y1="0"
+                            y2="0"
+                          >
+                            <stop
+                              offset="0%"
+                              stopColor="currentColor"
+                              stopOpacity="0.15"
+                            />
+                            <stop
+                              offset="100%"
+                              stopColor="currentColor"
+                              stopOpacity="1"
+                            />
+                          </linearGradient>
+                        </defs>
+                        <path
+                          d={sparkPaths[s.key]}
+                          fill="none"
+                          stroke={`url(#spark-${s.key})`}
+                          strokeWidth="2.3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="agn-spark agn-spark-draw"
+                          style={{ animationDelay: `${i * 120}ms` }}
+                        />
+                        <path
+                          d={sparkPaths[s.key]}
+                          fill="none"
+                          stroke={`url(#spark-${s.key})`}
+                          strokeWidth="2.3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="agn-spark agn-spark-flow"
+                          style={{ animationDelay: `${i * 120}ms` }}
+                        />
+                      </svg>
+                    </div>
                   </div>
 
                   {/* big number (gradient) */}
-                  <div className="flex items-baseline gap-2">
-                    <div className="bg-gradient-to-b from-primary to-primary/70 bg-clip-text text-4xl font-black leading-none tracking-tight text-transparent sm:text-5xl">
-                      {s.value}
+                  <div className="relative z-[1] flex items-baseline gap-2">
+                    <div className="agn-value bg-gradient-to-b from-primary to-primary/70 bg-clip-text text-4xl font-black leading-none tracking-tight text-transparent sm:text-5xl">
+                      <AnimatedStatValue value={s.value} delayMs={i * 140} />
                     </div>
                     <span className="inline-flex items-center gap-0.5 rounded-full bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary">
                       <TrendingUp className="h-2.5 w-2.5" strokeWidth={2.5} />
@@ -131,10 +233,10 @@ export function StatsPanel({ stats }: { stats: Stat[] }) {
                     </span>
                   </div>
 
-                  <div className="mt-3 text-sm font-bold leading-snug text-foreground">
+                  <div className="relative z-[1] mt-3 text-sm font-bold leading-snug text-foreground">
                     {s.label}
                   </div>
-                  <div className="mt-1 max-w-[15rem] text-xs leading-relaxed text-muted-foreground">
+                  <div className="relative z-[1] mt-1 max-w-[15rem] text-xs leading-relaxed text-muted-foreground">
                     {s.sub}
                   </div>
                 </div>

@@ -1,7 +1,5 @@
 import {
   ArrowRight,
-  Cpu,
-  BrainCircuit,
   Cloud,
   Smartphone,
   Droplets,
@@ -24,6 +22,10 @@ import { FadeInSection } from "@/components/landing/motion-section"
 import { DemoForm } from "@/components/landing/demo-form"
 import { CompetitorTable } from "@/components/landing/competitor-table"
 import { StatsPanel } from "@/components/landing/stats-panel"
+import {
+  ProductShowcase,
+  type ProductLayer,
+} from "@/components/landing/product-showcase"
 import { companyInfo } from "@/lib/data/company"
 
 interface PageProps {
@@ -96,37 +98,76 @@ export default function LandingPage({ params: { locale } }: PageProps) {
     },
   ]
 
-  const productLayers = [
+  const productLayers: ProductLayer[] = [
     {
+      key: "hardware",
       num: "01",
-      icon: Cpu,
       title: t("product.layers.hardware.title"),
       short: t("product.layers.hardware.short"),
       detail: t("product.layers.hardware.detail"),
-      highlighted: true,
     },
     {
+      key: "ai",
       num: "02",
-      icon: BrainCircuit,
       title: t("product.layers.ai.title"),
       short: t("product.layers.ai.short"),
       detail: t("product.layers.ai.detail"),
     },
     {
+      key: "cloud",
       num: "03",
-      icon: Cloud,
       title: t("product.layers.cloud.title"),
       short: t("product.layers.cloud.short"),
       detail: t("product.layers.cloud.detail"),
     },
     {
+      key: "app",
       num: "04",
-      icon: Smartphone,
       title: t("product.layers.app.title"),
       short: t("product.layers.app.short"),
       detail: t("product.layers.app.detail"),
     },
   ]
+
+  const phoneLabels = {
+    badge: t("product.phone.badge"),
+    greeting: t("product.phone.greeting"),
+    user: t("product.phone.user"),
+    live: t("product.phone.live"),
+    alert: t("product.phone.alert"),
+    humidity: t("product.phone.humidity"),
+    temperature: t("product.phone.temperature"),
+    soil: t("product.phone.soil"),
+    savings: t("product.phone.savings"),
+    weeklyTitle: t("product.phone.weeklyTitle"),
+    model: t("product.phone.model"),
+    accuracyLabel: t("product.phone.accuracyLabel"),
+    cta: t("product.phone.cta"),
+    hardwareTitle: t("product.phone.hardware.title"),
+    hardwareSubtitle: t("product.phone.hardware.subtitle"),
+    hardwareSensorsLabel: t("product.phone.hardware.sensorsLabel"),
+    hardwareSensors: t.raw("product.phone.hardware.sensors") as Array<{
+      name: string
+      status: string
+    }>,
+    hardwareBatteryLabel: t("product.phone.hardware.batteryLabel"),
+    hardwareRadioLabel: t("product.phone.hardware.radioLabel"),
+    hardwareSolarLabel: t("product.phone.hardware.solarLabel"),
+    aiTitle: t("product.phone.ai.title"),
+    aiSubtitle: t("product.phone.ai.subtitle"),
+    aiLayersLabel: t("product.phone.ai.layersLabel"),
+    aiEpochsLabel: t("product.phone.ai.epochsLabel"),
+    aiAccuracyLabel: t("product.phone.ai.accuracyLabel"),
+    aiConfusionLabel: t("product.phone.ai.confusionLabel"),
+    cloudTitle: t("product.phone.cloud.title"),
+    cloudSubtitle: t("product.phone.cloud.subtitle"),
+    cloudSourcesLabel: t("product.phone.cloud.sourcesLabel"),
+    cloudSources: t.raw("product.phone.cloud.sources") as string[],
+    cloudEndpoint: t("product.phone.cloud.endpoint"),
+    cloudLatencyLabel: t("product.phone.cloud.latencyLabel"),
+    cloudDbLabel: t("product.phone.cloud.dbLabel"),
+    cloudUptimeLabel: t("product.phone.cloud.uptimeLabel"),
+  }
 
   const techIcons = [Activity, Brain, Cloud, Smartphone] as const
   const techLayers = (["one", "two", "three", "four"] as const).map((key, i) => ({
@@ -355,174 +396,15 @@ export default function LandingPage({ params: { locale } }: PageProps) {
       </section>
 
       {/* Product */}
-      <section className="relative bg-background">
-        <div className="container relative py-20 md:py-28">
-          <div className="grid items-start gap-12 lg:grid-cols-[1.15fr_1fr]">
-            <FadeInSection>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                {t("product.eyebrow")}
-              </p>
-              <h2 className="mt-4 text-4xl font-black leading-[1.1] tracking-tight text-foreground md:text-5xl lg:text-6xl">
-                {t("product.title_a")}{" "}
-                <span className="block font-serif italic font-normal text-accent2">
-                  {t("product.title_b")}
-                </span>
-              </h2>
-              <p className="mt-6 max-w-lg text-sm text-muted-foreground md:text-base">
-                {t("product.description")}
-              </p>
-
-              <div className="mt-10 space-y-3">
-                {productLayers.map((layer, i) => {
-                  const Icon = layer.icon
-                  return (
-                    <FadeInSection key={layer.num} delay={i * 0.06}>
-                      <div
-                        className={`group flex items-start gap-4 rounded-xl border p-4 transition-all md:p-5 ${
-                          layer.highlighted
-                            ? "border-primary/30 bg-primary/[0.04] shadow-sm"
-                            : "border-border bg-card hover:border-primary/30 hover:shadow-sm"
-                        }`}
-                      >
-                        <div
-                          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-xs font-mono ${
-                            layer.highlighted
-                              ? "bg-primary text-primary-foreground"
-                              : "bg-muted text-muted-foreground"
-                          }`}
-                        >
-                          {layer.num}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2">
-                            <Icon
-                              className={`h-4 w-4 ${
-                                layer.highlighted
-                                  ? "text-primary"
-                                  : "text-muted-foreground"
-                              }`}
-                              strokeWidth={1.5}
-                            />
-                            <h3 className="font-semibold text-foreground">
-                              {layer.title}
-                            </h3>
-                          </div>
-                          <p className="mt-1 text-xs text-muted-foreground md:text-sm">
-                            {layer.short}
-                          </p>
-                          {layer.highlighted ? (
-                            <p className="mt-3 text-xs leading-relaxed text-foreground/75 md:text-sm">
-                              {layer.detail}
-                            </p>
-                          ) : null}
-                        </div>
-                        {layer.highlighted ? (
-                          <span className="mt-1 h-2 w-2 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary))]" />
-                        ) : null}
-                      </div>
-                    </FadeInSection>
-                  )
-                })}
-              </div>
-            </FadeInSection>
-
-            {/* Phone mockup — stays dark for product feel */}
-            <FadeInSection delay={0.15}>
-              <div className="relative mx-auto max-w-sm lg:ml-auto lg:mr-0">
-                <div className="absolute -right-2 -top-2 z-10 rounded-md bg-accent2 px-2.5 py-1 text-[10px] font-semibold text-accent2-foreground shadow-lg">
-                  {t("product.phone.badge")}
-                </div>
-                <div className="rounded-[2.5rem] border border-primary/15 bg-gradient-to-b from-marketing-raised to-marketing p-3 shadow-2xl shadow-primary/15">
-                  <div className="rounded-[2rem] border border-white/5 bg-marketing-inset p-5">
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <div className="text-[10px] text-white/50">
-                          {t("product.phone.greeting")}
-                        </div>
-                        <div className="text-lg font-bold text-white">
-                          {t("product.phone.user")}{" "}
-                          <span className="text-yellow-400">👋</span>
-                        </div>
-                      </div>
-                      <span className="rounded-full bg-accent2/10 px-2 py-0.5 text-[10px] font-medium text-accent2">
-                        {t("product.phone.live")}
-                      </span>
-                    </div>
-
-                    <div className="mt-4 rounded-xl border border-accent2/30 bg-accent2/5 p-3">
-                      <p className="text-[11px] leading-relaxed text-white/85">
-                        <span className="mr-1 inline-block h-1.5 w-1.5 rounded-full bg-accent2 align-middle" />
-                        {t("product.phone.alert")}
-                      </p>
-                    </div>
-
-                    <div className="mt-4 grid grid-cols-2 gap-2.5">
-                      {[
-                        { k: "humidity", v: "72", u: "%", tone: "text-white" },
-                        {
-                          k: "temperature",
-                          v: "24",
-                          u: "°c",
-                          tone: "text-white",
-                        },
-                        { k: "soil", v: "38", u: "%", tone: "text-amber-400" },
-                        { k: "savings", v: "41", u: "%", tone: "text-accent2" },
-                      ].map((m) => (
-                        <div
-                          key={m.k}
-                          className="rounded-lg bg-primary/[0.06] p-3"
-                        >
-                          <div className="text-[10px] text-white/50">
-                            {t(`product.phone.${m.k}` as never)}
-                          </div>
-                          <div className={`mt-1 text-xl font-bold ${m.tone}`}>
-                            {m.v}
-                            <span className="ml-0.5 text-xs text-white/50">
-                              {m.u}
-                            </span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="mt-4 rounded-xl bg-primary/[0.06] p-3">
-                      <div className="text-[10px] text-white/50">
-                        {t("product.phone.weeklyTitle")}
-                      </div>
-                      <div className="mt-2 flex h-1.5 gap-1">
-                        {[60, 75, 80, 70, 90, 85, 95].map((w, i) => (
-                          <div
-                            key={i}
-                            className="flex-1 rounded-full bg-accent2/70"
-                            style={{ opacity: w / 100 }}
-                          />
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="mt-3 flex items-center justify-between rounded-xl border border-primary/10 bg-primary/[0.04] p-3">
-                      <div>
-                        <div className="text-[10px] text-white/50">
-                          {t("product.phone.model")}
-                        </div>
-                        <div className="text-[11px] font-semibold text-white">
-                          {t("product.phone.accuracyLabel")}
-                        </div>
-                        <div className="text-xl font-bold text-accent2">
-                          94.2%
-                        </div>
-                      </div>
-                      <div className="rounded-md bg-accent2 px-3 py-2 text-[11px] font-semibold text-accent2-foreground">
-                        ✓ {t("product.phone.cta")}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </FadeInSection>
-          </div>
-        </div>
-      </section>
+      <ProductShowcase
+        eyebrow={t("product.eyebrow")}
+        titleA={t("product.title_a")}
+        titleB={t("product.title_b")}
+        description={t("product.description")}
+        liveLabel={t("product.live_pill")}
+        layers={productLayers}
+        phoneLabels={phoneLabels}
+      />
 
       {/* How it works — 4-layer tech architecture */}
       <section

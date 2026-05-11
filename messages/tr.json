@@ -119,6 +119,7 @@
           "detail": "AI uyarıları, senaryo tabanlı otomasyon ve tek dokunuş eylem butonları."
         }
       },
+      "live_pill": "Canlı",
       "phone": {
         "greeting": "Merhaba,",
         "user": "Ahmet Bey",
@@ -132,7 +133,38 @@
         "model": "GRU Model",
         "accuracyLabel": "Tahmin Doğruluğu",
         "cta": "Sulamayı Başlat",
-        "badge": "%41 Su Tasarrufu"
+        "badge": "%41 Su Tasarrufu",
+        "hardware": {
+          "title": "Saha Donanımı",
+          "subtitle": "Canlı Sensör Haritası",
+          "sensorsLabel": "Aktif Sensörler",
+          "sensors": [
+            { "name": "Sera 1 · Kuzey", "status": "v3.2 · 4h" },
+            { "name": "Sera 2 · Merkez", "status": "v3.2 · 4h" },
+            { "name": "Sera 3 · Güney", "status": "v3.2 · 4h" }
+          ],
+          "batteryLabel": "Batarya",
+          "radioLabel": "LoRa 868",
+          "solarLabel": "Solar"
+        },
+        "ai": {
+          "title": "Yapay Zeka",
+          "subtitle": "GRU Tabanlı Tahmin",
+          "layersLabel": "Mimari",
+          "epochsLabel": "Epoch",
+          "accuracyLabel": "Doğruluk",
+          "confusionLabel": "Confusion Matrisi (%)"
+        },
+        "cloud": {
+          "title": "Bulut",
+          "subtitle": "Gerçek Zamanlı Veri Akışı",
+          "sourcesLabel": "Kaynaklar → API → DB",
+          "sources": ["Sera 1", "Sera 2", "Sera 3"],
+          "endpoint": "/api/iot/ingest",
+          "latencyLabel": "p95 Gecikme",
+          "dbLabel": "Veritabanı",
+          "uptimeLabel": "Erişilebilirlik"
+        }
       }
     },
     "tech": {
