@@ -23,7 +23,7 @@ export function ScreenFrame({
 }: ScreenFrameProps) {
   return (
     <div
-      style={{ width: 440, height: 600 }}
+      style={{ width: 500, height: 680 }}
       className="relative flex flex-col rounded-[1.8rem] border border-white/5 bg-[#0a1410] p-6 text-white shadow-[inset_0_0_60px_rgba(0,0,0,0.4)]"
     >
       <div className="flex items-start justify-between">

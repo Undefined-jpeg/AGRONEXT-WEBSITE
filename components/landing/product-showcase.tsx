@@ -70,7 +70,7 @@ export function ProductShowcase({
   return (
     <section className="relative bg-background">
       <div className="container relative py-20 md:py-28">
-        <div className="grid items-start gap-12 lg:grid-cols-[1.15fr_1fr]">
+        <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.08fr]">
           <FadeInSection>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
               {eyebrow}
@@ -122,20 +122,20 @@ export function ProductShowcase({
                         {layer.num}
                       </span>
                       <span className="min-w-0 flex-1">
-                        <span className="flex items-center gap-2">
+                        <span className="flex items-start gap-2">
                           <Icon
                             className={`h-4 w-4 ${
                               isActive ? "text-primary" : "text-muted-foreground"
                             }`}
                             strokeWidth={1.5}
                           />
-                          <span className="font-semibold text-foreground">
+                          <span className="min-w-0 flex-1 text-sm font-semibold leading-tight text-foreground md:text-base">
                             {layer.title}
                           </span>
                           {isActive ? (
                             <motion.span
                               layoutId="active-layer-pill"
-                              className="ml-auto inline-flex items-center gap-1 rounded-full bg-primary/15 px-2 py-0.5 text-[10px] font-semibold text-primary"
+                              className="ml-auto inline-flex shrink-0 items-center gap-1 rounded-full bg-primary/15 px-2 py-0.5 text-[10px] font-semibold text-primary"
                               transition={{ type: "spring", stiffness: 320, damping: 28 }}
                             >
                               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
@@ -165,13 +165,13 @@ export function ProductShowcase({
           </FadeInSection>
 
           <FadeInSection delay={0.15}>
-            <div className="relative mx-auto w-fit">
+            <div className="relative mx-auto w-fit lg:scale-105">
               {/* Floating badge */}
               <div className="absolute -right-3 -top-3 z-10 rounded-md bg-accent2 px-3 py-1.5 text-xs font-semibold text-accent2-foreground shadow-lg">
                 {phoneLabels.badge}
               </div>
               {/* 2D snippet card */}
-              <div className="overflow-hidden rounded-[2rem] border border-border bg-card p-3 shadow-xl">
+              <div className="overflow-hidden rounded-[2rem] border border-border bg-card p-3 shadow-xl lg:p-4">
                 <ScreenRouter
                   variant={activeKey}
                   labels={phoneLabels}

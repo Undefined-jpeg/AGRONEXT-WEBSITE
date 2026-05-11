@@ -19,6 +19,8 @@ interface ScreenRouterProps {
 }
 
 const SLIDE_DISTANCE = 460
+const SCREEN_WIDTH = 500
+const SCREEN_HEIGHT = 680
 
 const slideVariants = {
   enter: (dir: number) => ({
@@ -46,7 +48,7 @@ export function ScreenRouter({
   return (
     <div
       className="relative overflow-hidden"
-      style={{ width: 440, height: 600 }}
+      style={{ width: SCREEN_WIDTH, height: SCREEN_HEIGHT }}
     >
       <AnimatePresence initial={false} custom={direction} mode="sync">
         <motion.div
